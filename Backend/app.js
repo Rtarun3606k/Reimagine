@@ -3,6 +3,7 @@ const mongoose = require("mongoose")
 
 // import routes
 const User_routes = require('./Routes/User.routes.js')
+const Login_Register_routes = require('./Routes/Login_Register.routes.js')
 
 
 // import models
@@ -20,6 +21,7 @@ app.use(express.json())
 
 // api routes
 app.use("/user", User_routes)
+app.use("/login_register", Login_Register_routes)
 
 
 app.listen(3000, () => {
