@@ -19,7 +19,7 @@ router.get("/user",async(req, res) => {
     
 })
 
-router.post("/user", async (req, res) => {
+router.post("/user_register", async (req, res) => {
     try {
         console.log(req.body);
         // console.log(req);
