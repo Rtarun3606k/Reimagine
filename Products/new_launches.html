@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>New from Apple</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            margin: 0;
+            padding: 0;
+            color: #1d1d1f;
+            background-color: #f5f5f7;
+        }
+        header {
+            background-color: #333;
+            color: white;
+            padding: 1rem;
+            text-align: center;
+        }
+        nav {
+            display: flex;
+            justify-content: center;
+            padding: 1rem;
+            background-color: #f2f2f2;
+        }
+        nav a {
+            color: #1d1d1f;
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+        }
+        main {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        .launch-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        .launch-item {
+            background-color: white;
+            padding: 1.5rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+        .launch-item img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 5px;
+        }
+        footer {
+            background-color: #f2f2f2;
+            text-align: center;
+            padding: 1rem;
+            margin-top: 2rem;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Apple</h1>
+    </header>
+    <nav>
+        <a href="#">Mac</a>
+        <a href="#">iPad</a>
+        <a href="#">iPhone</a>
+        <a href="#">Watch</a>
+        <a href="#">TV</a>
+        <a href="#">Music</a>
+        <a href="#">Support</a>
+    </nav>
+    <main>
+        <h2>New from Apple</h2>
+        <div class="launch-grid">
+            <div class="launch-item">
+                <img src="/placeholder.svg?height=200&width=300" alt="New MacBook Air" />
+                <h3>MacBook Air</h3>
+                <p>Supercharged by M3</p>
+                <a href="#">Learn more</a>
+            </div>
+            <div class="launch-item">
+                <img src="/placeholder.svg?height=200&width=300" alt="New iPad Pro" />
+                <h3>iPad Pro</h3>
+                <p>Supercharged by M2</p>
+                <a href="#">Learn more</a>
+            </div>
+            <div class="launch-item">
+                <img src="/placeholder.svg?height=200&width=300" alt="New Apple Watch" />
+                <h3>Apple Watch Series 9</h3>
+                <p>Smarter. Brighter. Mightier.</p>
+                <a href="#">Learn more</a>
+            </div>
+        </div>
+    </main>
+    <footer>
+        <p>&copy; 2024 Apple Inc. All rights reserved.</p>
+    </footer>
+</body>
+</html>
