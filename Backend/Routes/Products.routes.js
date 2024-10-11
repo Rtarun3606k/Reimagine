@@ -1,37 +1,34 @@
 const { Router } = require("express");
 const router = Router();
-
+const multer = require("multer");
 const Product_model = require("../Models/Products.model");
 
+const upload = multer();
 // Get all products
-router.get("/", async (req, res) => {
-  try {
-    const products = await Product_model.find();
-    const data = {
-      products: products,
-      count: products.length,
-      message: "All products fetched successfully",
-    };
-    res.status(200).json(data);
-  } catch (error) {
-    res.status(500).json({ error: `Error: ${error}` });
-  }
-});
 
-// Get all products
-router.post("/add_product", async (req, res) => {
+// Add product
+router.post("/add_product", upload.array("images", 20), async (req, res) => {
   try {
-    const add_product = new Product_model(req.body);
+    if (!req.files || req.files.length === 0) {
+      return res.status(400).json({ message: "No images uploaded" });
+    }
+
+    const images = req.files.map((file) => ({
+      name: file.originalname,
+      mimetype: file.mimetype,
+      image: file.buffer.toString("base64"), // Convert to base64
+    }));
+
+    const add_product = new Product_model({ ...req.body, image: images });
     const product = await add_product.save();
-    res
-      .status(200)
-      .json({ message: "Product added successfully", product: product });
+
+    res.status(200).json({ message: "Product added successfully", product });
   } catch (error) {
-    res.status(500).json({ error: `Error: ${error}` });
+    res.status(500).json({ error: `Error: ${error.message}` });
   }
 });
 
-//update by id
+// Update by id
 router.put("/:id", async (req, res) => {
   try {
     const product = await Product_model.findByIdAndUpdate(
@@ -39,23 +36,29 @@ router.put("/:id", async (req, res) => {
       req.body,
       { new: true }
     );
+    if (!product) {
+      return res.status(404).json({ message: "Product not found" });
+    }
     res
       .status(200)
       .json({ message: "Product updated successfully", product: product });
   } catch (error) {
-    res.status(500).json({ error: `Error: ${error}` });
+    res.status(500).json({ error: `Error: ${error.message}` });
   }
 });
 
-//delete by id
+// Delete by id
 router.delete("/:id", async (req, res) => {
   try {
     const product = await Product_model.findByIdAndDelete(req.params.id);
+    if (!product) {
+      return res.status(404).json({ message: "Product not found" });
+    }
     res
       .status(200)
       .json({ message: "Product deleted successfully", product: product });
   } catch (error) {
-    res.status(500).json({ error: `Error: ${error}` });
+    res.status(500).json({ error: `Error: ${error.message}` });
   }
 });
 
@@ -63,11 +66,37 @@ router.delete("/:id", async (req, res) => {
 router.get("/:id", async (req, res) => {
   try {
     const product = await Product_model.findById(req.params.id);
+    if (!product) {
+      return res.status(404).json({ message: "Product not found" });
+    }
     res
       .status(200)
       .json({ message: "Product fetched successfully", product: product });
   } catch (error) {
-    res.status(500).json({ error: `Error: ${error}` });
+    res.status(500).json({ error: `Error: ${error.message}` });
+  }
+});
+
+// Get specific product image by id and index
+router.get("/product/:id/image/:index", async (req, res) => {
+  try {
+    const productId = req.params.id;
+    const imageIndex = parseInt(req.params.index, 10);
+
+    const product = await Product_model.findById(productId);
+    if (!product) {
+      return res.status(404).json({ message: "Product not found" });
+    }
+
+    if (imageIndex < 0 || imageIndex >= product.image.length) {
+      return res.status(400).json({ message: "Invalid image index" });
+    }
+
+    const image = product.image[imageIndex];
+    const imageBuffer = Buffer.from(image.image, "base64");
+    res.set("Content-Type", image.mimetype).send(imageBuffer);
+  } catch (error) {
+    res.status(500).json({ error: `Error: ${error.message}` });
   }
 });
 
