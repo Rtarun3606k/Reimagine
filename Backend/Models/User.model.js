@@ -12,6 +12,7 @@ const UserSchema = new mongoose.Schema({
   email: {
     type: String,
     required: true,
+    unique: true,
   },
   phone: {
     type: Number,
@@ -56,6 +57,10 @@ const UserSchema = new mongoose.Schema({
   orders: {
     type: Array,
     required: false, // Make this optional
+  },
+  role: {
+    type: String,
+    default: "user",
   },
 });
 
