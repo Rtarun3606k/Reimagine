@@ -62,6 +62,14 @@ const UserSchema = new mongoose.Schema({
     type: String,
     default: "user",
   },
+  mimetype: {
+    type: String,
+    required: false, // Make this optional
+  },
+  image_name: {
+    type: String,
+    required: false, // Make this optional
+  },
 });
 
 module.exports = mongoose.model("User", UserSchema);

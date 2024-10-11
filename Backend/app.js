@@ -6,6 +6,7 @@ const User_routes = require("./Routes/User.routes.js");
 const Login_Register_routes = require("./Routes/Login_Register.routes.js");
 const Product_routes = require("./Routes/Products.routes.js");
 const check_tokens_routes = require("./Routes/CheckTokens.routes.js");
+const image_routess = require("./Routes/Image_upload.js");
 
 // import models
 const User_model = require("./Models/User.model.js");
@@ -28,6 +29,7 @@ app.use("/user", User_routes);
 app.use("/login_register", Login_Register_routes);
 app.use("/products", Product_routes);
 app.use("/check_tokens", check_tokens_routes);
+app.use("/image", image_routess);
 
 app.listen(3000, () => {
   console.log(`Server is running on port 3000  `);
