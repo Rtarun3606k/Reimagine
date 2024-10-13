@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Home from "../src/Pages/Home";
 import * as Sentry from "@sentry/react";
 import Layout from "./Pages/Layout";
+import Page from "./Pages/Page";
 
 const APPRouter = () => {
   return (
@@ -10,10 +11,8 @@ const APPRouter = () => {
       <Router>
         <Routes>
           <Route path="/" element={<Layout />}>
-            {/* <Route path="/about" element={<About />} />
-          <Route path="/services" element={<Services />} />
-          <Route path="/contact" element={<Contact />} /> */}
             <Route index element={<Home />} />
+            <Route path="/page" element={<Page />} />
           </Route>
         </Routes>
       </Router>
