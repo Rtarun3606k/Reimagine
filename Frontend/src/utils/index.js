@@ -21,6 +21,7 @@ import play from "/assets/images/play.svg";
 import pause from "/assets/images/pause.svg";
 
 import yellow from "/assets/images/yellow.jpg";
+// import yellow from "./../../public/assets/images/yellow.jpg";
 import blue from "/assets/images/blue.jpg";
 import white from "/assets/images/white.jpg";
 import black from "/assets/images/black.jpg";
