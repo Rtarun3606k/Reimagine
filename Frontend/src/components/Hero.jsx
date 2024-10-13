@@ -51,9 +51,15 @@ const Hero = () => {
 
       <div
         id="cta"
-        className="flex flex-col items-center opacity-0 translate-y-20"
+        className="flex flex-col items-center opacity-0 translate-y-20 z-50"
       >
-        <a href="#highlights" className="btn">
+        <a
+          href="#highlights"
+          className="btn z-50"
+          onClick={() => {
+            console.log("clicked");
+          }}
+        >
           Buy
         </a>
         <p className="font-normal text-xl">From $199/month or $999</p>

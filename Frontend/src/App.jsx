@@ -11,4 +11,4 @@ const App = () => {
   return <APPRouter />;
 };
 
-export default Sentry.withProfiler(App);
+export default App;
