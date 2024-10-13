@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>iPhone 15 Pro - Apple</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap');
+
+        :root {
+            --background-color: #000;
+            --text-color: #f5f5f7;
+            --accent-color: rgba(41, 151, 255, 0.8);
+            --secondary-bg: #1d1d1f;
+            --hover-color: rgba(0, 113, 227, 0.8);
+            --blue-light: rgba(41, 151, 255, 0.2);
+            --blue-dark: rgba(0, 113, 227, 0.4);
+        }
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            margin: 0;
+            padding: 0;
+            color: var(--text-color);
+            background-color: var(--background-color);
+            line-height: 1.5;
+        }
+        header {
+            background-color: rgba(0, 0, 0, 0.8);
+            backdrop-filter: saturate(180%) blur(20px);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        nav {
+            display: flex;
+            justify-content: center;
+            padding: 1rem;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        nav a {
+            color: var(--text-color);
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            transition: color 0.3s ease;
+        }
+        nav a:hover {
+            color: var(--accent-color);
+        }
+        main {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        .product-hero {
+            text-align: center;
+            margin-bottom: 4rem;
+            position: relative;
+        }
+        .product-hero h2 {
+            font-size: 3.5rem;
+            margin-bottom: 0.5rem;
+            color: var(--accent-color);
+        }
+        .product-hero p {
+            font-size: 1.5rem;
+            color: var(--text-color);
+            margin-bottom: 2rem;
+        }
+        .product-image {
+            width: 100%;
+            max-width: 800px;
+            height: auto;
+            border-radius: 20px;
+            margin-bottom: 2rem;
+        }
+        .product-features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-bottom: 4rem;
+        }
+        .feature {
+            background: linear-gradient(135deg, var(--blue-dark), var(--blue-light));
+            padding: 2rem;
+            border-radius: 20px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+        .feature:hover {
+            transform: translateY(-5px);
+        }
+        .feature h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--accent-color);
+        }
+        .feature p {
+            font-size: 1rem;
+            color: var(--text-color);
+        }
+        .cta-button {
+            display: inline-block;
+            background-color: var(--accent-color);
+            color: var(--background-color);
+            padding: 1rem 2rem;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: background-color 0.3s ease;
+        }
+        .cta-button:hover {
+            background-color: var(--hover-color);
+        }
+        .product-specs {
+            background: linear-gradient(135deg, var(--blue-dark), var(--blue-light));
+            padding: 2rem;
+            border-radius: 20px;
+            margin-bottom: 4rem;
+        }
+        .product-specs h3 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            color: var(--accent-color);
+        }
+        .specs-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+        }
+        .spec-item {
+            padding: 1rem;
+            background-color: rgba(0, 0, 0, 0.6);
+            border-radius: 10px;
+        }
+        .spec-item h4 {
+            margin: 0 0 0.5rem 0;
+            color: var(--accent-color);
+        }
+        .spec-item p {
+            color: var(--text-color);
+        }
+        footer {
+            background-color: var(--secondary-bg);
+            text-align: center;
+            padding: 2rem;
+            margin-top: 2rem;
+        }
+        .memory-models {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin: 2rem 0;
+            flex-wrap: wrap;
+        }
+        .memory-model {
+            position: relative;
+            cursor: pointer;
+        }
+        .memory-model-button {
+            background: linear-gradient(135deg, var(--blue-light), var(--blue-dark));
+            color: var(--text-color);
+            border: none;
+            padding: 0.75rem 1.5rem;
+            border-radius: 15px;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            font-weight: 600;
+        }
+        .memory-model-button:hover, .memory-model-button:focus {
+            background: linear-gradient(135deg, var(--blue-dark), var(--blue-light));
+            transform: scale(1.05);
+        }
+        .memory-model-details {
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+            background: linear-gradient(135deg, var(--blue-dark), var(--blue-light));
+            border: none;
+            border-radius: 10px;
+            padding: 1rem;
+            width: 200px;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            z-index: 10;
+        }
+        .memory-model:hover .memory-model-details,
+        .memory-model:focus-within .memory-model-details {
+            opacity: 1;
+            visibility: visible;
+        }
+        .memory-model-details h4 {
+            margin: 0 0 0.5rem 0;
+            color: var(--accent-color);
+        }
+        .memory-model-details p {
+            margin: 0;
+            font-size: 0.9rem;
+            color: var(--text-color);
+        }
+        .applecare-options {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin: 2rem 0;
+            flex-wrap: wrap;
+        }
+        .applecare-option {
+            background: rgba(41, 151, 255, 0.1);
+            border: 1px solid var(--accent-color);
+            border-radius: 15px;
+            padding: 1.5rem;
+            width: calc(50% - 0.5rem);
+            max-width: 400px;
+            text-align: left;
+            font-family: 'Inter', sans-serif;
+            transition: transform 0.3s ease, background-color 0.3s ease;
+        }
+        .applecare-option:hover {
+            transform: translateY(-5px);
+            background: rgba(41, 151, 255, 0.2);
+        }
+        .applecare-option h4 {
+            color: var(--accent-color);
+            margin-top: 0;
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+        }
+        .applecare-option p {
+            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
+            color: var(--text-color);
+        }
+        .applecare-option strong {
+            font-size: 1.1rem;
+            color: var(--accent-color);
+            display: block;
+            margin-top: 1rem;
+        }
+        .faq-section {
+            margin-top: 2rem;
+            text-align: left;
+        }
+        .faq-item {
+            margin-bottom: 1rem;
+        }
+        .faq-question {
+            color: var(--accent-color);
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .faq-answer {
+            margin-top: 0.5rem;
+            display: none;
+        }
+        .faq-answer.active {
+            display: block;
+        }
+        @media (max-width: 768px) {
+            .applecare-option {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="#">Mac</a>
+            <a href="#">iPad</a>
+            <a href="#">iPhone</a>
+            <a href="#">Watch</a>
+            <a href="#">TV</a>
+            <a href="#">Music</a>
+            <a href="#">Support</a>
+        </nav>
+    </header>
+    <main>
+        <section class="product-hero">
+            <h2>iPhone 15 Pro</h2>
+            <p>Titanium. So strong. So light. So Pro.</p>
+            <img src="/placeholder.svg?height=600&width=800" alt="iPhone 15 Pro" class="product-image" />
+            <div class="memory-models">
+                <div class="memory-model">
+                    <button class="memory-model-button" aria-haspopup="true" aria-expanded="false">128GB</button>
+                    <div class="memory-model-details" role="tooltip">
+                        <h4>128GB</h4>
+                        <p>Perfect for everyday use. Store thousands of photos and videos.</p>
+                    </div>
+                </div>
+                <div class="memory-model">
+                    <button class="memory-model-button" aria-haspopup="true" aria-expanded="false">256GB</button>
+                    <div class="memory-model-details" role="tooltip">
+                        <h4>256GB</h4>
+                        <p>Ideal for power users. More space for apps and high-quality videos.</p>
+                    </div>
+                </div>
+                <div class="memory-model">
+                    <button class="memory-model-button" aria-haspopup="true" aria-expanded="false">512GB</button>
+                    <div class="memory-model-details" role="tooltip">
+                        <h4>512GB</h4>
+                        <p>For professionals and content creators. Ample space for large files and projects.</p>
+                    </div>
+                </div>
+                <div class="memory-model">
+                    <button class="memory-model-button" aria-haspopup="true" aria-expanded="false">1TB</button>
+                    <div class="memory-model-details" role="tooltip">
+                        <h4>1TB</h4>
+                        <p>Maximum capacity. Never worry about running out of space again.</p>
+                    </div>
+                </div>
+            </div>
+            <a href="#" class="cta-button">Buy Now</a>
+        </section>
+        <section class="applecare-options">
+            <div class="applecare-option">
+                <h4>AppleCare+ for iPhone 15 Pro</h4>
+                <p>Includes unlimited repairs for accidental damage protection, 24/7 priority access to Apple experts, and more.</p>
+                <strong>$9.99/month</strong>
+                <p>or $199 for 2 years</p>
+            </div>
+            <div class="applecare-option">
+                <h4>AppleCare+ with Theft and Loss</h4>
+                <p>Includes everything in AppleCare+ and up to two incidents of theft or loss coverage every 12 months.</p>
+                <strong>$13.49/month</strong>
+                <p>or $269 for 2 years</p>
+            </div>
+        </section>
+        <section class="product-features">
+            <div class="feature">
+                <h3>A17 Pro chip</h3>
+                <p>The fastest chip ever in a smartphone, with a 6-core GPU for console-quality gaming.</p>
+            </div>
+            <div class="feature">
+                <h3>Pro camera system</h3>
+                <p>48MP Main | Ultra Wide | Telephoto. Capture amazing details with the 48MP Main camera.</p>
+            </div>
+            <div class="feature">
+                <h3>Action button</h3>
+                <p>Customize the new Action button for your favorite feature or shortcut.</p>
+            </div>
+            <div class="feature">
+                <h3>Titanium design</h3>
+                <p>Aerospace-grade titanium makes iPhone 15 Pro our lightest Pro model ever.</p>
+            </div>
+        </section>
+        <section class="product-specs">
+            <h3>Tech Specs</h3>
+            <div class="specs-grid">
+                <div class="spec-item">
+                    <h4>Display</h4>
+                    <p>6.1-inch Super Retina XDR display</p>
+                </div>
+                <div class="spec-item">
+                    <h4>Capacity</h4>
+                    <p>128GB, 256GB, 512GB, 1TB</p>
+                </div>
+                <div class="spec-item">
+                    <h4>Water Resistance</h4>
+                    <p>IP68 (max depth of 6 meters up to 30 minutes)</p>
+                </div>
+                <div class="spec-item">
+                    <h4>Camera</h4>
+                    <p>48MP Main, 12MP Ultra Wide, 12MP Telephoto</p>
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2024 Apple Inc. All rights reserved.</p>
+        <div class="faq-section">
+            
+            <h3>Frequently Asked Questions</h3>
+            <div class="faq-item">
+                <div class="faq-question" tabindex="0" role="button" aria-expanded="false">
+                    What's new in iPhone 15 Pro?
+                    <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                    iPhone 15 Pro features a new titanium design, A17 Pro chip, USB-C connector, and an advanced pro camera system with a 48MP main camera.
+                </div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question" tabindex="0" role="button" aria-expanded="false">
+                    How long does the battery last?
+                    <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                    iPhone 15 Pro offers up to 23 hours of video playback on a single charge. Actual battery life varies by use and configuration.
+                </div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question" tabindex="0" role="button" aria-expanded="false">
+                    Is iPhone 15 Pro water-resistant?
+                    <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                    Yes, iPhone 15 Pro has an IP68 rating, which means it's water-resistant to a maximum depth of 6 meters for up to 30 minutes.
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script>
+        document.querySelectorAll('.faq-question').forEach(question => {
+            question.addEventListener('click', () => {
+                const answer = question.nextElementSibling;
+                const toggle = question.querySelector('.faq-toggle');
+                answer.classList.toggle('active');
+                question.setAttribute('aria-expanded', answer.classList.contains('active'));
+                toggle.textContent = answer.classList.contains('active') ? '-' : '+';
+            });
+        });
+    </script>
+</body>
+</html>
