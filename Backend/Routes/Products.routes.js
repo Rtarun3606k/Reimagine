@@ -2,7 +2,7 @@ const { Router } = require("express");
 const router = Router();
 const multer = require("multer");
 const Product_model = require("../Models/Products.model");
-
+const verifyToken = require("../Middleware/authMiddleware");
 const upload = multer();
 // Get all products
 
@@ -48,7 +48,7 @@ router.put("/:id", async (req, res) => {
 });
 
 // Delete by id
-router.delete("/:id", async (req, res) => {
+router.delete("/:id", verifyToken, async (req, res) => {
   try {
     const product = await Product_model.findByIdAndDelete(req.params.id);
     if (!product) {

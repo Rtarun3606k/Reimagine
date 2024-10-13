@@ -1,25 +1,14 @@
-import Navbar from './components/Navbar';
-import Hero from './components/Hero';
-import Highlights from './components/Highlights';
-import Model from './components/Model';
-import Features from './components/Features';
-import HowItWorks from './components/HowItWorks';
-import Footer from './components/Footer';
-
-import * as Sentry from '@sentry/react';
+// src/App.jsx
+import React from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Home from "../src/Pages/Home";
+// import About from "./pages/About";
+// import Contact from "./pages/Contact";
+import * as Sentry from "@sentry/react";
+import APPRouter from "./APPRouter";
 
 const App = () => {
-  return (
-    <main className="bg-black">
-      <Navbar />
-      <Hero />
-      <Highlights />
-      <Model />
-      <Features />
-      <HowItWorks />
-      <Footer />
-    </main>
-  )
-}
+  return <APPRouter />;
+};
 
 export default Sentry.withProfiler(App);
