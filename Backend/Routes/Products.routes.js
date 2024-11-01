@@ -48,7 +48,7 @@ router.put("/:id", async (req, res) => {
 });
 
 // Delete by id
-router.delete("/:id", verifyToken, async (req, res) => {
+router.delete("/:id", async (req, res) => {
   try {
     const product = await Product_model.findByIdAndDelete(req.params.id);
     if (!product) {

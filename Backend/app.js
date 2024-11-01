@@ -1,5 +1,6 @@
 const express = require("express");
 const mongoose = require("mongoose");
+const cors = require("cors");
 
 // import routes
 const User_routes = require("./Routes/User.routes.js");
@@ -24,6 +25,7 @@ mongoose
   });
 app.use(express.json());
 
+app.use(cors());
 // api routes
 app.use("/user", User_routes);
 app.use("/login_register", Login_Register_routes);
