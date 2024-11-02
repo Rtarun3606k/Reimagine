@@ -27,13 +27,14 @@ const Login_controller = async (req, res) => {
       accessToken: tokens.accessToken,
       refreshToken: tokens.refreshToken,
     };
-    res.status(200).json({ token });
+    res.status(200).json({ token, message: "Login successful" });
   } catch (error) {
     res.status(500).json({ error: `Login failed ${error} ` });
   }
 };
 
 const Register_controller = async (req, res) => {
+  console.log(req.body);
   try {
     const { email, password, name, rePassword } = req.body;
     if (password !== rePassword) {

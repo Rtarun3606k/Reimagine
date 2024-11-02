@@ -6,9 +6,27 @@ import Home from "../src/Pages/Home";
 // import Contact from "./pages/Contact";
 import * as Sentry from "@sentry/react";
 import APPRouter from "./APPRouter";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const App = () => {
-  return <APPRouter />;
+  return (
+    <>
+      <APPRouter />
+      <ToastContainer
+        position="top-right"
+        autoClose={5000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="dark"
+      />
+    </>
+  );
 };
 
 export default App;

@@ -5,6 +5,8 @@ import * as Sentry from "@sentry/react";
 import Layout from "./Pages/Layout";
 import IPhonePage from "./Pages/Page";
 import Iphone from "./Pages/Iphone";
+import Login from "./Pages/Login";
+import Register from "./Pages/Register";
 
 const APPRouter = () => {
   return (
@@ -15,6 +17,8 @@ const APPRouter = () => {
             <Route index element={<Home />} />
             <Route path="/store" element={<IPhonePage />} />
             <Route path="/iphone" element={<Iphone />} />
+            <Route path="/login" element={<Login />} />
+            <Route path="/register" element={<Register />} />
           </Route>
         </Routes>
       </Router>
