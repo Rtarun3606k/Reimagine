@@ -7,6 +7,7 @@ import IPhonePage from "./Pages/Page";
 import Iphone from "./Pages/Iphone";
 import Login from "./Pages/Login";
 import Register from "./Pages/Register";
+import Store from "./Pages/Store";
 
 const APPRouter = () => {
   return (
@@ -15,10 +16,11 @@ const APPRouter = () => {
         <Routes>
           <Route path="/" element={<Layout />}>
             <Route index element={<Home />} />
-            <Route path="/store" element={<IPhonePage />} />
+            {/* <Route path="/store" element={<IPhonePage />} /> */}
             <Route path="/iphone" element={<Iphone />} />
             <Route path="/login" element={<Login />} />
             <Route path="/register" element={<Register />} />
+            <Route path="/store" element={<Store />} />
           </Route>
         </Routes>
       </Router>
