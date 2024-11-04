@@ -19,16 +19,50 @@ const Store = () => {
       >
         <Slide scale={0.4}>
           {images.map((each, index) => (
-            <center>
+            <center
+              className="flex justify-center flex-row-reverse items-center"
+              style={{
+                width: "80%",
+                height: "70vh",
+                // backgroundImage:
+                //   "linear-gradient(120deg, #f6d365 0%, #fda085 100%)",
+              }}
+            >
               {" "}
-              <p className="absolute top-1/4 ml-12  z-50">
-                POsition Lorem ipsum dolor sit amet consectetur, adipisicing
-                elit. Eum, reprehenderit! Nemo, ducimus.
-              </p>
+              <div
+                className="flex  flex-col justify-center items-center gap-2"
+                style={{
+                  height: "90%",
+                }}
+              >
+                <p
+                  className="font-extrabold text-2xl"
+                  style={{
+                    background:
+                      "linear-gradient(120deg, #f6d365 0%, #fda085 100%)",
+                    WebkitBackgroundClip: "text",
+                    WebkitTextFillColor: "transparent",
+                  }}
+                >
+                  POsition Lorem ipsum dolor sit amet consectetur, adipisicing
+                  elit. Eum, reprehenderit! Nemo, ducimus.
+                </p>
+                <p
+                  style={{
+                    background:
+                      "linear-gradient(120deg, #f6d365 0%, #fda085 100%)",
+                    WebkitBackgroundClip: "text",
+                    WebkitTextFillColor: "transparent",
+                  }}
+                >
+                  POsition Lorem ipsum dolor sit amet consectetur, adipisicing
+                  elit. Eum, reprehenderit! Nemo, ducimus.
+                </p>
+              </div>
               <img
                 className="rounded-lg"
                 key={index}
-                style={{ width: "80%", height: "70vh" }}
+                style={{ width: "60%", height: "70vh" }}
                 src={each}
               />
             </center>
