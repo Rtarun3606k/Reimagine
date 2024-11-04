@@ -1,0 +1,60 @@
+/* ProductPage.css */
+
+.product-page {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    margin: 0;
+    padding: 0;
+    color: #1d1d1f;
+    background-color: #f5f5f7;
+}
+
+.product-header {
+    background-color: #333;
+    color: white;
+    padding: 1rem;
+    text-align: center;
+}
+
+.product-nav {
+    display: flex;
+    justify-content: center;
+    padding: 1rem;
+    background-color: #f2f2f2;
+}
+
+.product-nav a {
+    color: #1d1d1f;
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+}
+
+.product-main {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+.product-hero-section {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.product-features-section {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.product-feature {
+    background-color: white;
+    padding: 1.5rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.product-footer {
+    background-color: #f2f2f2;
+    text-align: center;
+    padding: 1rem;
+    margin-top: 2rem;
+}

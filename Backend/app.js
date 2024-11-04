@@ -1,5 +1,6 @@
 const express = require("express");
 const mongoose = require("mongoose");
+const cors = require("cors");
 
 // import routes
 const User_routes = require("./Routes/User.routes.js");
@@ -14,6 +15,13 @@ const Product_model = require("./Models/Products.model.js");
 
 // middle ware
 const app = express();
+
+app.use(
+  cors({
+    origin: "http://localhost:5173",
+  })
+);
+
 mongoose
   .connect("mongodb://localhost:27017/express")
   .then((e) => {
@@ -30,6 +38,12 @@ app.use("/login_register", Login_Register_routes);
 app.use("/products", Product_routes);
 app.use("/check_tokens", check_tokens_routes);
 app.use("/image", image_routess);
+
+// test route
+
+app.get("/", (req, res) => {
+  res.json({ message: "Welcome to express" });
+});
 
 app.listen(3000, () => {
   console.log(`Server is running on port 3000  `);
