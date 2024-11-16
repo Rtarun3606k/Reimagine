@@ -2,8 +2,10 @@ const { Router } = require("express");
 const router = Router();
 const multer = require("multer");
 const Product_model = require("../Models/Products.model");
-const verifyToken = require("../Middleware/authMiddleware");
+const UserModel = require("../Models/User.model"); // Ensure UserModel is imported
+const { verifyToken } = require("../Middleware/authMiddleware"); // Corrected import
 const upload = multer();
+
 // Get all products
 
 // Add product
@@ -29,8 +31,14 @@ router.post("/add_product", upload.array("images", 20), async (req, res) => {
 });
 
 // Update by id
-router.put("/:id", async (req, res) => {
+router.put("/:id", verifyToken, async (req, res) => {
   try {
+    const verifyUser = await UserModel.findById(req.userId);
+    if (!verifyUser) {
+      return res.status(404).json({ message: "User not found" });
+    } else if (verifyUser.role !== "admin") {
+      return res.status(403).json({ message: "Unauthorized access" });
+    }
     const product = await Product_model.findByIdAndUpdate(
       req.params.id,
       req.body,
@@ -48,12 +56,20 @@ router.put("/:id", async (req, res) => {
 });
 
 // Delete by id
-router.delete("/:id", async (req, res) => {
+router.delete("/:id", verifyToken, async (req, res) => {
   try {
+    const verifyUser = await UserModel.findById(req.userId);
+    if (!verifyUser) {
+      return res.status(404).json({ message: "User not found" });
+    } else if (verifyUser.role !== "admin") {
+      return res.status(403).json({ message: "Unauthorized access" });
+    }
+
     const product = await Product_model.findByIdAndDelete(req.params.id);
     if (!product) {
       return res.status(404).json({ message: "Product not found" });
     }
+
     res
       .status(200)
       .json({ message: "Product deleted successfully", product: product });
