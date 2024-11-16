@@ -1,8 +1,36 @@
+import React, { useLayoutEffect, useRef } from 'react';
 import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
-import { useLayoutEffect, useRef } from "react";
+import IPhoneCard from '../components/IPhoneCard';
 
 gsap.registerPlugin(ScrollTrigger);
+
+const iPhoneModels = [
+  {
+    model: '15 Pro',
+    price: '999',
+    image: 'https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/iphone-15-pro-finish-select-202309-6-7inch_GEO_US?wid=5120&hei=2880&fmt=p-jpg&qlt=80&.v=1693009279082',
+    color: 'gray'
+  },
+  {
+    model: '15',
+    price: '799',
+    image: 'https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/iphone-15-finish-select-202309-6-1inch_GEO_US?wid=5120&hei=2880&fmt=p-jpg&qlt=80&.v=1692923777466',
+    color: 'blue'
+  },
+  {
+    model: '15 Plus',
+    price: '899',
+    image: 'https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/iphone-15-plus-finish-select-202309-6-7inch_GEO_US?wid=5120&hei=2880&fmt=p-jpg&qlt=80&.v=1692923780078',
+    color: 'pink'
+  },
+  {
+    model: '15 Pro Max',
+    price: '1199',
+    image: 'https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/iphone-15-pro-max-finish-select-202309-6-7inch_GEO_US?wid=5120&hei=2880&fmt=p-jpg&qlt=80&.v=1693009279096',
+    color: 'black'
+  }
+];
 
 export default function Iphone() {
   const component = useRef();
@@ -14,7 +42,6 @@ export default function Iphone() {
 
       const numPanels = panels.length;
 
-      // Animation to move panels horizontally
       gsap.to(panels, {
         xPercent: -100 * (numPanels - 1),
         ease: "none",
@@ -24,34 +51,37 @@ export default function Iphone() {
           scrub: 1,
           snap: 1 / (numPanels - 1),
           end: () => "+=" + slider.current.offsetWidth,
-          markers: false, // Disable markers for production
+          markers: false,
         },
       });
     }, component);
 
-    return () => ctx.revert(); // Cleanup on component unmount
+    return () => ctx.revert();
   }, []);
 
   return (
     <div className="App" ref={component}>
-      {/* Slider container */}
       <div
         ref={slider}
         className="container"
         style={{
-          width: `${100 * 4}vw`, // Adjust container width based on number of panels (4 panels => 400vw)
+          width: `${100 * 5}vw`, // Updated to 5 panels
           height: "100vh",
           display: "flex",
         }}
       >
-        {/* Panel 1 */}
         <div
           className="description panel blue"
           style={{
-            flex: "0 0 100vw", // Ensure each panel takes 100vw width
+            flex: "0 0 100vw",
             height: "100vh",
+            display: "flex",
+            flexDirection: "column",
+            justifyContent: "center",
+            alignItems: "center",
           }}
         >
+          <h1 className="text-4xl font-bold mb-4">iPhone 15 Models</h1>
           <div>
             SCROLL DOWN
             <div className="scroll-down">
@@ -59,41 +89,25 @@ export default function Iphone() {
             </div>
           </div>
         </div>
-        {/* Panel 2 */}
-        <div
-          className="panel bg-red-400"
-          style={{
-            flex: "0 0 100vw", // Each panel takes 100vw
-            height: "100vh",
-          }}
-        >
-          ONE
-        </div>
-        {/* Panel 3 */}
-        <div
-          className="panel bg-orange-500"
-          style={{
-            flex: "0 0 100vw", // Each panel takes 100vw
-            height: "100vh",
-          }}
-        >
-          TWO
-        </div>
-        {/* Panel 4 */}
-        <div
-          className="panel bg-purple-500"
-          style={{
-            flex: "0 0 100vw", // Each panel takes 100vw
-            height: "100vh",
-          }}
-        >
-          THREE
-        </div>
+        {iPhoneModels.map((model, index) => (
+          <div
+            key={index}
+            className={`panel bg-gray-900`}
+            style={{
+              flex: "0 0 100vw",
+              height: "100vh",
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center",
+            }}
+          >
+            <IPhoneCard {...model} />
+          </div>
+        ))}
       </div>
 
-      {/* Last Container */}
-      <div className="lastContainer" style={{ height: "100vh" }}>
-        Last Container
+      <div className="lastContainer" style={{ height: "100vh", display: "flex", justifyContent: "center", alignItems: "center" }}>
+        <h2 className="text-3xl font-bold">Discover the iPhone 15 Family</h2>
       </div>
     </div>
   );
