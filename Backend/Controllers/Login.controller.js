@@ -25,7 +25,6 @@ const Login_controller = async (req, res) => {
     const tokens = generateToken(user._id);
     const token = {
       accessToken: tokens.accessToken,
-      refreshToken: tokens.refreshToken,
     };
     res.status(200).json({ token, message: "Login successful" });
   } catch (error) {
