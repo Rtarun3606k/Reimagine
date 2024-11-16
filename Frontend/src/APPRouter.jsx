@@ -22,6 +22,10 @@ const APPRouter = () => {
             <Route path="/register" element={<Register />} />
             <Route path="/store" element={<Store />} />
           </Route>
+          <Route path="/admin" element={<h1>Not Found</h1>}>
+            <Route path="/home" element={<Login />} />
+          </Route>
+          <Route path="*" element={<h1>Not Found</h1>} />
         </Routes>
       </Router>
     </div>

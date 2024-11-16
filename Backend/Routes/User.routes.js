@@ -19,7 +19,7 @@ router.get("/user", verifyToken, async (req, res) => {
 
 router.get("/user/:id", verifyToken, async (req, res) => {
   try {
-    const user = await User_model.findById(req.params.id);
+    const user = await User_model.findById(req.userId);
     if (!user) {
       return res.status(404).json({ message: "User not found" });
     }
@@ -32,7 +32,7 @@ router.get("/user/:id", verifyToken, async (req, res) => {
 
 router.put("/user/:id", verifyToken, async (req, res) => {
   try {
-    const user = await User_model.findById(req.params.id);
+    const user = await User_model.findById(req.userId);
     if (!user) {
       return res.status(404).json({ message: "User not found" });
     }
@@ -52,7 +52,7 @@ router.put("/user/:id", verifyToken, async (req, res) => {
 
 router.delete("/user/:id", verifyToken, async (req, res) => {
   try {
-    const user = await User_model.findById(req.params.id);
+    const user = await User_model.findById(req.userId);
     if (!user) {
       return res.status(404).json({ message: "User not found" });
     } else {
