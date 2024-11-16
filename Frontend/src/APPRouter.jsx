@@ -16,14 +16,13 @@ const APPRouter = () => {
         <Routes>
           <Route path="/" element={<Layout />}>
             <Route index element={<Home />} />
-            {/* <Route path="/store" element={<IPhonePage />} /> */}
             <Route path="/iphone" element={<Iphone />} />
             <Route path="/login" element={<Login />} />
             <Route path="/register" element={<Register />} />
             <Route path="/store" element={<Store />} />
           </Route>
-          <Route path="admin" element={<h1>Not Found</h1>}>
-            <Route path="/home" element={<Login />} />
+          <Route path="admin" element={<Layout />}>
+            <Route path="home" element={<Login />} />
           </Route>
           <Route path="*" element={<h1>Not Found</h1>} />
         </Routes>
