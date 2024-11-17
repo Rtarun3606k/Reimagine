@@ -120,7 +120,7 @@ export default function Iphone() {
       <div className="sticky mt-6">{/* <IPhoneNav /> */}</div>
       <PromoBanner />
 
-      <main className="pt-[120px]">
+      <main className="">
         {/* Hero Section */}
         <section
           className="max-w-[1200px] mx-auto px-4 py-20 text-center relative opacity-70"
@@ -128,42 +128,34 @@ export default function Iphone() {
             // backgroundImage:
             // "url(https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/iphone-15-finish-select-202309-6-7inch-blue?wid=5120&hei=2880&fmt=p-jpg&qlt=80&.v=1692923777972)",
             backgroundImage:
-              "url(https://photos5.appleinsider.com/gallery/56314-114642-15-Pro-colors-xl.jpg)",
+              // "url(https://photos5.appleinsider.com/gallery/56314-114642-15-Pro-colors-xl.jpg)",
+              "url(https://www.glitched.online/wp-content/uploads/2022/09/iPhone-14-pro-Image.jpeg)",
             backgroundSize: "cover",
-            backgroundPosition: "center",
+            backgroundPosition: "full",
             backgroundRepeat: "no-repeat",
-            clipPath: "polygon(0 0, 100% 0, 100% 90%, 0 100%)",
+
+            // clipPath: "polygon(0 0, 100% 0, 100% 90%, 0 100%)",
           }}
         >
-          <h1 className="text-7xl font-bold mb-6 bg-gradient-to-r from-white via-gray-300 to-gray-500 text-white bg-clip-text">
+          <h1 className="relative mt-[200px] opacity-100 text-7xl font-bold mb-6 bg-gradient-to-r from-yellow-400 via-red-100 to-pink-500 bg-clip-text text-transparent">
             iPhone 15
           </h1>
-          <p className="text-3xl text-gray-400 mb-8">Designed to be loved.</p>
+          <p className="text-3xl  mb-8 bg-gradient-to-r from-pink-400 via-yellow-100 to-purple-500 bg-clip-text text-transparent">
+            Designed to be loved.
+          </p>
           <div className="flex justify-center gap-4 mb-12">
             <Link
               to="/shop/iphone-15"
               className="px-8 py-3 bg-blue-500 text-white rounded-full hover:bg-blue-600 transition-colors duration-300"
             >
-              Buy
+              {/* Buy */}
             </Link>
-            <Link
+            {/* <Link
               to="/iphone-15/learn-more"
               className="px-8 py-3 text-blue-500 hover:underline"
             >
               Learn more <ChevronRight className="inline-block w-4 h-4" />
-            </Link>
-          </div>
-          <div className="flex justify-center items-end gap-8">
-            <img
-              src="https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/iphone-15-plus-finish-select-202309-6-7inch_GEO_US?wid=5120&hei=2880&fmt=p-jpg&qlt=80&.v=1692923780078"
-              alt="iPhone 15 Plus"
-              className="w-1/4 transform hover:scale-105 transition-transform duration-300"
-            />
-            <img
-              src="https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/iphone-15-pro-max-finish-select-202309-6-7inch_GEO_US?wid=5120&hei=2880&fmt=p-jpg&qlt=80&.v=1693009279096"
-              alt="iPhone 15 Pro Max"
-              className="w-1/3 transform hover:scale-105 transition-transform duration-300"
-            />
+            </Link> */}
           </div>
         </section>
 
@@ -176,13 +168,15 @@ export default function Iphone() {
                 className={`feature-card relative overflow-hidden rounded-3xl bg-gradient-to-br ${feature.gradient} p-8 aspect-square`}
               >
                 <div className="relative z-10">
-                  <h3 className="text-sm text-gray-300 mb-2">
+                  <h3 className="text-smbg-gradient-to-r from-pink-400 via-yellow-100 to-purple-500 bg-clip-text text-transparentmb-2">
                     {feature.title}
                   </h3>
-                  <h2 className="text-3xl font-semibold mb-4">
+                  <h2 className="text-3xl font-semibold mb-4 bg-gradient-to-r from-pink-400 via-yellow-100 to-purple-500 bg-clip-text text-transparent">
                     {feature.subtitle}
                   </h2>
-                  <p className="text-gray-100">{feature.description}</p>
+                  <p className="bg-gradient-to-r from-pink-400 via-yellow-100 to-purple-500 bg-clip-text text-transparent">
+                    {feature.description}
+                  </p>
                   <button className="absolute bottom-8 right-8 p-2 rounded-full bg-gray-800/50 hover:bg-gray-800 transition-colors">
                     <Plus className="w-6 h-6" />
                   </button>
@@ -224,7 +218,7 @@ export default function Iphone() {
                     to={`/shop/${model.name
                       .toLowerCase()
                       .replace(/\s+/g, "-")}`}
-                    className="inline-block px-6 py-2 bg-blue-500 text-white rounded-full hover:bg-blue-600 transition-colors duration-300"
+                    className="inline-block px-6 py-2 bg-blue-500 text-white hover:bg-blue-600 transition-colors duration-300 hover:bg-blue rounded-lg p-3"
                   >
                     Buy
                   </Link>
