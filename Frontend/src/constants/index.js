@@ -11,9 +11,10 @@ import {
 
 export const navLists = [
   { name: "Store", link: "/store" },
-  { name: "Mac", link: "/mac" },
+  // { name: "Mac", link: "/mac" },
   { name: "iPhone", link: "/iphone" },
   { name: "Support", link: "/support" },
+  { name: "About US", link: "/about" },
 ];
 
 export const hightlightsSlides = [

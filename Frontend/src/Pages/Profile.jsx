@@ -1,6 +1,5 @@
 import React from "react";
 import PropTypes from "prop-types";
-import "tailwindcss/tailwind.css"; // Make sure Tailwind CSS is properly set up in your project
 
 const Profile = ({ user = {} }) => {
   return (
@@ -63,6 +62,20 @@ const Profile = ({ user = {} }) => {
               ))
             ) : (
               <p className="text-gray-400">No orders available</p>
+            )}
+          </ul>
+          <h2 className="text-2xl font-semibold border-b border-gray-700 pb-2 mt-8">
+            Cart
+          </h2>
+          <ul className="mt-4 list-disc list-inside">
+            {user.orders && user.orders.length > 0 ? (
+              user.orders.map((order, index) => (
+                <li key={index} className="mt-2">
+                  {JSON.stringify(order)}
+                </li>
+              ))
+            ) : (
+              <p className="text-gray-400">No items available</p>
             )}
           </ul>
         </div>
