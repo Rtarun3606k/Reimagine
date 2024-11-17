@@ -8,11 +8,10 @@ import Iphone from "./Pages/Iphone";
 import Login from "./Pages/Login";
 import Register from "./Pages/Register";
 import Store from "./Pages/Store";
-import Profile from "./Pages/Profile";
-import AdminLayout from "./Admin/Pages_Admin_AdminLayout (1)";
-import AdminDashboard from "./Admin/Pages_Admin_AdminDashboard";
-import AdminOrders from "./Admin/Pages_Admin_AdminOrders";
-import AdminProducts from "./Admin/Pages_Admin_AdminProducts";
+import AdminLayout from "./Pages/Admin/AdminLayout";
+import AdminDashboard from "./Pages/Admin/AdminDashboard";
+import AdminProducts from "./Pages/Admin/AdminProducts";
+import AdminOrders from "./Pages/Admin/AdminOrders";
 
 const APPRouter = () => {
   return (
@@ -25,12 +24,11 @@ const APPRouter = () => {
             <Route path="/login" element={<Login />} />
             <Route path="/register" element={<Register />} />
             <Route path="/store" element={<Store />} />
-            <Route path="/profile" element={<Profile />} />
           </Route>
           <Route path="admin" element={<AdminLayout />}>
-            <Route path="home" element={<AdminDashboard />} />
-            <Route path="orders" element={<AdminOrders />} />
+            <Route index element={<AdminDashboard />} />
             <Route path="products" element={<AdminProducts />} />
+            <Route path="orders" element={<AdminOrders />} />
           </Route>
           <Route path="*" element={<h1>Not Found</h1>} />
         </Routes>
