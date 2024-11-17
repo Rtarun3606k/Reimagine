@@ -1,6 +1,6 @@
 import { appleImg, bagImg, searchImg } from "../utils";
 import { navLists } from "../constants";
-import { NavLink } from "react-router-dom";
+import { NavLink, Link } from "react-router-dom";
 import { color } from "three/examples/jsm/nodes/Nodes.js";
 
 const Navbar = () => {
@@ -28,12 +28,15 @@ const Navbar = () => {
         </div>
 
         <div className="flex items-center gap-7 max-sm:justify-end max-sm:flex-1">
-          <img
-            src="../assets/images/profile.png"
-            alt="search"
-            width={25}
-            height={25}
-          />
+          <Link to="/profile">
+            {" "}
+            <img
+              src="../assets/images/profile.png"
+              alt="search"
+              width={25}
+              height={25}
+            />
+          </Link>
           <img src={bagImg} alt="bag" width={18} height={18} />
         </div>
       </nav>
