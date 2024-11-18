@@ -10,7 +10,7 @@ import Login from "./Pages/Login";
 import Register from "./Pages/Register";
 import Store from "./Pages/Store";
 import Profile from "./Pages/Profile";
-import SupportPage from "./Pages/Support";
+import SupportPage from "./Pages/suport";
 
 
 const APPRouter = () => {
