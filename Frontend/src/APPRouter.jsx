@@ -10,6 +10,7 @@ import Login from "./Pages/Login";
 import Register from "./Pages/Register";
 import Store from "./Pages/Store";
 import Profile from "./Pages/Profile";
+import SupportPage from "./Pages/Support";
 
 
 const APPRouter = () => {
@@ -24,14 +25,13 @@ const APPRouter = () => {
             <Route path="/register" element={<Register />} />
             <Route path="/store" element={<Store />} />
             <Route path="/profile" element={<Profile />} />
-            <Route path="/support" element={<Support />} /> 
+            <Route path="/support" element={<SupportPage />} />
           </Route>
           <Route path="*" element={<h1>Not Found</h1>} />
         </Routes>
       </Router>
     </div>
-  )
-
+  );
 };
 
 export default APPRouter;
