@@ -9,7 +9,7 @@ const verifyToken = (req, res, next) => {
   const token = req.header("Authorization");
   if (!token) return res.status(401).json({ error: "Access denied" });
   try {
-    const decoded = jwt.verify(token, process.env.SECRET_KEY);
+    const decoded = jwt.verify(token, process.env.Secreat_KEY);
     req.userId = decoded.userId;
     next();
   } catch (error) {
@@ -18,7 +18,7 @@ const verifyToken = (req, res, next) => {
 };
 
 const generateToken = (userId) => {
-  const token = jwt.sign({ userId }, process.env.SECRET_KEY, {
+  const token = jwt.sign({ userId }, process.env.Secreat_KEY, {
     expiresIn: "1h",
   });
   return { token };

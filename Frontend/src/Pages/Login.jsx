@@ -1,7 +1,10 @@
 import React, { useState } from "react";
 import { toast } from "react-toastify";
+import { store_access_token } from "../utils/Cookies";
+import { useNavigate } from "react-router-dom";
 
 const Login = () => {
+  const naviagate = useNavigate();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
@@ -31,6 +34,13 @@ const Login = () => {
       toast.success(data.message);
       setEmail("");
       setPassword("");
+      console.log(data.token.accessToken.token, "access token");
+      store_access_token(data.token.accessToken.token);
+      if (data.userRole === "admin") {
+        naviagate("/admin");
+      } else {
+        naviagate("/");
+      }
     } else {
       toast.error(data.error);
     }
