@@ -1,6 +1,4 @@
-// src/Pages/Support.jsx
 import React from "react";
-import { Search } from 'lucide-react';
 
 const SupportPage = () => {
   return (
@@ -10,21 +8,13 @@ const SupportPage = () => {
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-zinc-800/30 via-zinc-900/30 to-black/30" />
         <div className="container mx-auto px-4 relative">
           <div className="flex flex-col items-center space-y-4 text-center">
-            <h1 className="text-3xl font-bold sm:text-4xl md:text-5xl bg-gradient-to-b from-white to-gray-400 bg-clip-text text-transparent">
+            <h1 className="text-4xl font-bold sm:text-5xl md:text-6xl bg-gradient-to-r from-pink-500 via-purple-500 to-pink-500 bg-clip-text text-transparent drop-shadow-sm">
               Welcome to Support
             </h1>
-            <p className="mx-auto max-w-[700px] text-gray-400">
+            <p className="mx-auto max-w-[700px] text-lg bg-gradient-to-r from-gray-400 to-gray-300 bg-clip-text text-transparent font-medium">
               Get help with your device. Find answers, troubleshoot issues, and
               connect with our support team.
             </p>
-            <div className="w-full max-w-2xl relative">
-              <Search className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-gray-500" />
-              <input
-                className="w-full pl-10 pr-4 py-2 rounded-full border border-gray-800 bg-black/50 backdrop-blur-sm focus:outline-none focus:ring-2 focus:ring-gray-700 text-white placeholder:text-gray-500"
-                placeholder="Search for help articles..."
-                type="search"
-              />
-            </div>
           </div>
         </div>
       </section>
@@ -32,7 +22,7 @@ const SupportPage = () => {
       {/* Quick Access Section */}
       <section className="py-12">
         <div className="container mx-auto px-4">
-          <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto"> {/* Updated grid container */}
             {[
               {
                 title: "Device Care",
@@ -57,9 +47,9 @@ const SupportPage = () => {
             ].map((item) => (
               <div
                 key={item.title}
-                className="bg-zinc-900/50 backdrop-blur-sm border border-zinc-800 rounded-2xl p-6 transition-all duration-300 hover:bg-zinc-800/50"
+                className="bg-zinc-900/50 backdrop-blur-sm border border-zinc-800 rounded-2xl p-6 transition-all duration-300 hover:bg-zinc-800/50 group"
               >
-                <h3 className="text-xl font-semibold mb-2 flex items-center">
+                <h3 className="text-xl font-semibold mb-2 flex items-center bg-gradient-to-r from-pink-500 to-purple-500 bg-clip-text text-transparent group-hover:from-purple-500 group-hover:to-pink-500 transition-all">
                   <span className="mr-2 text-2xl">{item.icon}</span>
                   {item.title}
                 </h3>
@@ -75,10 +65,10 @@ const SupportPage = () => {
         <div className="container mx-auto px-4">
           <div className="mx-auto max-w-3xl space-y-8">
             <div className="space-y-2 text-center">
-              <h2 className="text-3xl font-bold bg-gradient-to-b from-white to-gray-400 bg-clip-text text-transparent">
+              <h2 className="text-3xl font-bold bg-gradient-to-r from-pink-500 via-purple-500 to-pink-500 bg-clip-text text-transparent">
                 Frequently Asked Questions
               </h2>
-              <p className="text-gray-400">
+              <p className="text-lg bg-gradient-to-r from-gray-400 to-gray-300 bg-clip-text text-transparent font-medium">
                 Find quick answers to common questions about our products and
                 services
               </p>
@@ -148,8 +138,10 @@ const SupportPage = () => {
                 >
                   <summary className="font-semibold cursor-pointer list-none">
                     <div className="flex justify-between items-center">
-                      {item.question}
-                      <span className="transform group-open:rotate-180 transition-transform duration-200">
+                      <span className="bg-gradient-to-r from-pink-500 to-purple-500 bg-clip-text text-transparent group-hover:from-purple-500 group-hover:to-pink-500 transition-all">
+                        {item.question}
+                      </span>
+                      <span className="transform group-open:rotate-180 transition-transform duration-200 text-gray-400">
                         ▼
                       </span>
                     </div>
