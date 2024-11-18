@@ -9,10 +9,6 @@ import Login from "./Pages/Login";
 import Register from "./Pages/Register";
 import Store from "./Pages/Store";
 import Profile from "./Pages/Profile";
-import AdminLayout from "./Admin/Pages_Admin_AdminLayout (1)";
-import AdminDashboard from "./Admin/Pages_Admin_AdminDashboard";
-import AdminOrders from "./Admin/Pages_Admin_AdminOrders";
-import AdminProducts from "./Admin/Pages_Admin_AdminProducts";
 
 const APPRouter = () => {
   return (
