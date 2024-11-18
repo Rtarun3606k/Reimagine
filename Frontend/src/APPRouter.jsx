@@ -27,11 +27,11 @@ const APPRouter = () => {
             <Route path="/store" element={<Store />} />
             <Route path="/profile" element={<Profile />} />
           </Route>
-          <Route path="admin" element={<AdminLayout />}>
+          {/* <Route path="admin" element={<AdminLayout />}>
             <Route path="home" element={<AdminDashboard />} />
             <Route path="orders" element={<AdminOrders />} />
             <Route path="products" element={<AdminProducts />} />
-          </Route>
+          </Route> */}
           <Route path="*" element={<h1>Not Found</h1>} />
         </Routes>
       </Router>
