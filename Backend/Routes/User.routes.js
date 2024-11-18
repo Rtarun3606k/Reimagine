@@ -6,10 +6,15 @@ const { verifyToken } = require("../Middleware/authMiddleware.js");
 
 router.get("/user", verifyToken, async (req, res) => {
   try {
+    console.log(req.userId, "userId");
     const user_data = await User_model.find();
     if (!user_data) {
       return res.status(404).json({ message: "No user found" });
     }
+    // if (user_data.role !== "admin") {
+    //   console.log(user_data, "user_data");
+    //   return res.status(404).json({ message: "Not admin" });
+    // }
     res.status(200).json({ user_data: user_data, message: "Users found" });
   } catch (error) {
     console.log(error);
