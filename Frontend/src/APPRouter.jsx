@@ -11,6 +11,7 @@ import Register from "./Pages/Register";
 import Store from "./Pages/Store";
 import Profile from "./Pages/Profile";
 
+
 const APPRouter = () => {
   return (
     <div>
