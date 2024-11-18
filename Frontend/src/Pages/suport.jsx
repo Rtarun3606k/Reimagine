@@ -22,7 +22,7 @@ const SupportPage = () => {
       {/* Quick Access Section */}
       <section className="py-12">
         <div className="container mx-auto px-4">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto"> {/* Updated grid container */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
             {[
               {
                 title: "Device Care",
@@ -134,7 +134,7 @@ const SupportPage = () => {
               ].map((item) => (
                 <details
                   key={item.question}
-                  className="group bg-zinc-900/50 backdrop-blur-sm border border-zinc-800 rounded-2xl p-6 transition-all duration-300 hover:bg-zinc-800/50"
+                  className="faq-item group bg-zinc-900/50 backdrop-blur-sm border border-zinc-800 rounded-2xl p-6 transition-all duration-300 hover:bg-zinc-800/50"
                 >
                   <summary className="font-semibold cursor-pointer list-none">
                     <div className="flex justify-between items-center">

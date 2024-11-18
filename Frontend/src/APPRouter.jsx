@@ -11,7 +11,10 @@ import Register from "./Pages/Register";
 import Store from "./Pages/Store";
 import Profile from "./Pages/Profile";
 import SupportPage from "./Pages/suport";
-
+import AdminDashboard from "./Admin/AdminDashboard";
+import AdminLayout from "./Admin/AdminLayout";
+import AdminUsers from "./Admin/AdminUsers";
+import AdminSettings from "./Admin/AdminSettings";
 
 const APPRouter = () => {
   return (
@@ -26,6 +29,11 @@ const APPRouter = () => {
             <Route path="/store" element={<Store />} />
             <Route path="/profile" element={<Profile />} />
             <Route path="/support" element={<SupportPage />} />
+          </Route>
+          <Route path="/admin" element={<AdminLayout />}>
+            <Route index element={<AdminDashboard />} />
+            <Route path="users" element={<AdminUsers />} />
+            <Route path="settings" element={<AdminSettings />} />
           </Route>
           <Route path="*" element={<h1>Not Found</h1>} />
         </Routes>
