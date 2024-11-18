@@ -1,3 +1,4 @@
+// APPRouter.jsx
 import React from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Home from "../src/Pages/Home";
@@ -22,17 +23,14 @@ const APPRouter = () => {
             <Route path="/register" element={<Register />} />
             <Route path="/store" element={<Store />} />
             <Route path="/profile" element={<Profile />} />
+            <Route path="/support" element={<Support />} /> 
           </Route>
-          {/* <Route path="admin" element={<AdminLayout />}>
-            <Route path="home" element={<AdminDashboard />} />
-            <Route path="orders" element={<AdminOrders />} />
-            <Route path="products" element={<AdminProducts />} />
-          </Route> */}
           <Route path="*" element={<h1>Not Found</h1>} />
         </Routes>
       </Router>
     </div>
-  );
+  )
+
 };
 
 export default APPRouter;
