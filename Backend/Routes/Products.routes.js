@@ -8,6 +8,15 @@ const upload = multer();
 
 // Get all products
 
+router.get("/allProducts", async (req, res) => {
+  try {
+    const allProducts = await Product_model.find();
+    console.log(allProducts, "allproducts");
+    res.status(200).json(allProducts);
+  } catch (error) {
+    res.status(500).json({ error: `Error: ${error.message}` });
+  }
+});
 // Add product
 router.post("/add_product", upload.array("images", 20), async (req, res) => {
   try {
@@ -117,3 +126,6 @@ router.get("/product/:id/image/:index", async (req, res) => {
 });
 
 module.exports = router;
+
+
+blob:http://localhost:5173/289f8b89-40a2-41cc-85d9-875c8a5623bf
