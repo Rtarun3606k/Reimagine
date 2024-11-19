@@ -4,7 +4,7 @@ const User_model = require("../Models/User.model.js");
 const bcrypt = require("bcrypt");
 const { verifyToken } = require("../Middleware/authMiddleware.js");
 
-router.get("/user", verifyToken, async (req, res) => {
+router.get("/userall", async (req, res) => {
   try {
     console.log(req.userId, "userId");
     const user_data = await User_model.find();
@@ -22,8 +22,9 @@ router.get("/user", verifyToken, async (req, res) => {
   }
 });
 
-router.get("/user/:id", verifyToken, async (req, res) => {
+router.get("/user", verifyToken, async (req, res) => {
   try {
+    console.log("i am here");
     const user = await User_model.findById(req.userId);
     if (!user) {
       return res.status(404).json({ message: "User not found" });
@@ -67,6 +68,44 @@ router.delete("/user/:id", verifyToken, async (req, res) => {
   } catch (error) {
     console.log(error);
     res.status(500).json({ message: "Could not delete user" });
+  }
+});
+
+router.post("/order/:productId", verifyToken, async (req, res) => {
+  try {
+    console.log(req.userId, "userId and in order placing route");
+    const user = await User_model.findById(req.userId);
+    if (!user) {
+      return res.status(404).json({ message: "User not found" });
+    }
+    const order = {
+      product: req.params.productId,
+    };
+    user.orders.push(order);
+    await user.save();
+    res.status(200).json({ message: "Order placed successfully" });
+  } catch (error) {
+    console.log(error);
+    res.status(500).json({ message: "Could not place order" });
+  }
+});
+
+router.post("/cart/:productId", verifyToken, async (req, res) => {
+  try {
+    console.log(req.userId, "userId and in order placing route");
+    const user = await User_model.findById(req.userId);
+    if (!user) {
+      return res.status(404).json({ message: "User not found" });
+    }
+    const order = {
+      product: req.params.productId,
+    };
+    user.cart.push(order);
+    await user.save();
+    res.status(200).json({ message: "Order placed successfully" });
+  } catch (error) {
+    console.log(error);
+    res.status(500).json({ message: "Could not place order" });
   }
 });
 

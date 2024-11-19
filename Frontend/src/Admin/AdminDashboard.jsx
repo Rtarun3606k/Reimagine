@@ -33,7 +33,8 @@ const AdminDashboardWithProvider = () => {
       );
       const data = await response.json();
       console.log(data);
-      setData(data);
+      // data = data.reverse();
+      setData(data.reverse());
     } catch (error) {
       console.error("Error fetching products:", error);
     }

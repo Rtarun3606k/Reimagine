@@ -8,6 +8,7 @@ const Login_Register_routes = require("./Routes/Login_Register.routes.js");
 const Product_routes = require("./Routes/Products.routes.js");
 const check_tokens_routes = require("./Routes/CheckTokens.routes.js");
 const image_routess = require("./Routes/Image_upload.js");
+const get_routess = require("./Routes/GetProducts.js");
 
 // import models
 const User_model = require("./Models/User.model.js");
@@ -38,6 +39,7 @@ app.use("/login_register", Login_Register_routes);
 app.use("/products", Product_routes);
 app.use("/check_tokens", check_tokens_routes);
 app.use("/image", image_routess);
+app.use("/single", get_routess);
 
 // test route
 

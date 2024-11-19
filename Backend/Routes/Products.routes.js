@@ -88,7 +88,7 @@ router.delete("/:id", verifyToken, async (req, res) => {
 });
 
 // Get product by id
-router.get("/:id", async (req, res) => {
+router.get("/single/:id", async (req, res) => {
   try {
     const product = await Product_model.findById(req.params.id);
     if (!product) {
@@ -127,5 +127,4 @@ router.get("/product/:id/image/:index", async (req, res) => {
 
 module.exports = router;
 
-
-blob:http://localhost:5173/289f8b89-40a2-41cc-85d9-875c8a5623bf
+// blob:http://localhost:5173/289f8b89-40a2-41cc-85d9-875c8a5623bf

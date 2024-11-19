@@ -37,6 +37,8 @@ const models = [
 ];
 
 const ProductCard = ({ models }) => {
+  console.log(models);
+  // models = models.reverse();
   const cardsRef = useRef([]);
   const [images, setImages] = useState({});
 
@@ -80,7 +82,7 @@ const ProductCard = ({ models }) => {
   }, [models]);
 
   return (
-    <section className="text-grey-300 py-2 models-section opacity-100 z-50">
+    <Link className="text-grey-300 py-2 models-section opacity-100 z-50">
       <div className="max-w-[90vw] mx-auto px-4">
         <div className="flex flex-wrap gap-8 mt-12 justify-center">
           {models.map((model, index) => (
@@ -89,19 +91,36 @@ const ProductCard = ({ models }) => {
               ref={(el) => (cardsRef.current[index] = el)}
               className="text-center bg-gray-300 p-4 rounded-lg w-[calc(25%-1rem)]"
             >
-              {model.image ? (
-                +(
-                  <img
-                    src={`${
-                      import.meta.env.VITE_REACT_APP_URL
-                    }/products/product/${model._id}/image/${image}`}
-                    alt={model.name}
-                    className="w-full h-auto mb-8"
-                  />
-                )
+              {/* {model.image.map((img, index) => {
+                return (
+                  <>
+                    <img
+                      src={`${
+                        import.meta.env.VITE_REACT_APP_URL
+                      }/products/product/${model._id}/image/${index}`}
+                      alt=""
+                    />
+                  </>
+                );
+              })} */}
+
+              <img
+                src={`${import.meta.env.VITE_REACT_APP_URL}/products/product/${
+                  model._id
+                }/image/${0}`}
+                alt=""
+              />
+              {/* {model.image.map ? (
+                <img
+                  src={`${
+                    import.meta.env.VITE_REACT_APP_URL
+                  }/products/product/${model._id}/image/${image}`}
+                  alt={model.name}
+                  className="w-full h-auto mb-8"
+                />
               ) : (
                 <div className="w-full h-auto mb-8 bg-gray-200">Loading...</div>
-              )}
+              )} */}
               <h3 className="text-2xl font-semibold mb-2">{model.name}</h3>
               <p className="text-gray-500 mb-2">{model.displaySize}</p>
               <p className="text-xl mb-1">{model.price}</p>
@@ -109,7 +128,7 @@ const ProductCard = ({ models }) => {
                 From {model.monthly} with instant cashback*
               </p>
               <Link
-                to={`/shop/${model.name.toLowerCase().replace(/\s+/g, "-")}`}
+                to={`/${model._id}`}
                 className="px-6 py-2 bg-blue-500 text-white hover:bg-blue-700 transition-colors duration-300 rounded-lg z-50"
               >
                 Buy
@@ -122,7 +141,7 @@ const ProductCard = ({ models }) => {
           most leading banks.
         </p>
       </div>
-    </section>
+    </Link>
   );
 };
 
