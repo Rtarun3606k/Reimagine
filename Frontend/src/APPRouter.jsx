@@ -15,6 +15,7 @@ import AdminDashboard from "./Admin/AdminDashboard";
 import AdminLayout from "./Admin/AdminLayout";
 import AdminUsers from "./Admin/AdminUsers";
 import AdminSettings from "./Admin/AdminSettings";
+import About from "./Pages/About";
 
 const APPRouter = () => {
   return (
@@ -29,6 +30,7 @@ const APPRouter = () => {
             <Route path="/store" element={<Store />} />
             <Route path="/profile" element={<Profile />} />
             <Route path="/support" element={<SupportPage />} />
+            <Route path="/about" element={<About />} />
           </Route>
           <Route path="/admin" element={<AdminLayout />}>
             <Route index element={<AdminDashboard />} />
