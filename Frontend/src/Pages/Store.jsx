@@ -30,7 +30,7 @@ const Store = () => {
           <VideoSlider />
         </div>
       </center>
-      <ProductCard models={Data} />
+      <ProductCard models={Data} deletel={false} />
     </div>
   );
 };

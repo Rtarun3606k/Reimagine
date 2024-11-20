@@ -7,7 +7,7 @@ dotenv.config({ path: "./.env" });
 
 const verifyToken = (req, res, next) => {
   const token = req.header("Authorization")?.split(" ")[1]; // Extract the token from the "Bearer <token>" format
-  console.log(token);
+  console.log(token, "token");
   if (!token) return res.status(401).json({ error: "Access denied" });
   try {
     console.log(process.env.Secreat_KEY, "Sec");
@@ -17,6 +17,7 @@ const verifyToken = (req, res, next) => {
     req.userId = userId;
     next();
   } catch (error) {
+    console.log(error);
     res.status(401).json({ message: "Invalid token" });
   }
 };

@@ -67,13 +67,6 @@ router.put("/:id", verifyToken, async (req, res) => {
 // Delete by id
 router.delete("/:id", verifyToken, async (req, res) => {
   try {
-    const verifyUser = await UserModel.findById(req.userId);
-    if (!verifyUser) {
-      return res.status(404).json({ message: "User not found" });
-    } else if (verifyUser.role !== "admin") {
-      return res.status(403).json({ message: "Unauthorized access" });
-    }
-
     const product = await Product_model.findByIdAndDelete(req.params.id);
     if (!product) {
       return res.status(404).json({ message: "Product not found" });

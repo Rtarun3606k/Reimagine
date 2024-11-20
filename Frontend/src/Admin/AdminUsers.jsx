@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { get_access_token } from "../utils/Cookies";
 
 const UsersTable = () => {
   const [users, setUsers] = useState([]);
@@ -14,10 +15,19 @@ const UsersTable = () => {
     // Fetch users data from your API or data source
     const fetchUsers = async () => {
       try {
-        const response = await fetch("http://localhost:3000/user/userall");
+        const response = await fetch("http://localhost:3000/user/userall", {
+          headers: {
+            Authorization: `Bearer ${get_access_token()}`,
+          },
+        });
         const data = await response.json();
-        console.log(data);
         setUsers(data.user_data);
+        if (Array.isArray(data)) {
+          console.log("Users fetched:", users);
+        } else {
+          console.error("Fetched data is not an array:", data);
+          console.log("Users fetched:", users);
+        }
       } catch (error) {
         console.error("Error fetching users:", error);
       }
@@ -39,16 +49,55 @@ const UsersTable = () => {
     }));
   };
 
-  const handleSave = (index) => {
-    const updatedUsers = [...users];
-    updatedUsers[index] = editUser;
-    setUsers(updatedUsers);
-    setEditIndex(null);
+  const handleSave = async (index) => {
+    const updatedUser = { ...editUser };
+    try {
+      const response = await fetch(
+        `${import.meta.env.VITE_REACT_APP_URL}/user/user/${updatedUser._id}`,
+        {
+          method: "PUT",
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${get_access_token()}`,
+          },
+          body: JSON.stringify(updatedUser),
+        }
+      );
+      const data = await response.json();
+      if (response.ok) {
+        const updatedUsers = [...users];
+        updatedUsers[index] = data.user_data;
+        setUsers(updatedUsers);
+        setEditIndex(null);
+      } else {
+        console.error("Error updating user:", data.message);
+      }
+    } catch (error) {
+      console.error("Error updating user:", error);
+    }
   };
 
-  const handleDelete = (user) => {
-    const updatedUsers = users.filter((u) => u !== user);
-    setUsers(updatedUsers);
+  const handleDelete = async (user) => {
+    try {
+      const response = await fetch(
+        `http://localhost:3000/user/user/${user._id}`,
+        {
+          method: "DELETE",
+          headers: {
+            Authorization: `Bearer ${get_access_token()}`,
+          },
+        }
+      );
+      const data = await response.json();
+      if (response.ok) {
+        const updatedUsers = users.filter((u) => u._id !== user._id);
+        setUsers(updatedUsers);
+      } else {
+        console.error("Error deleting user:", data.message);
+      }
+    } catch (error) {
+      console.error("Error deleting user:", error);
+    }
   };
 
   return (
@@ -64,7 +113,7 @@ const UsersTable = () => {
           </tr>
         </thead>
         <tbody>
-          {users?.map((user, index) => (
+          {users.map((user, index) => (
             <tr key={index} className="hover:bg-gray-700">
               <td className="py-2 px-4 border-b border-gray-700">
                 {editIndex === index ? (

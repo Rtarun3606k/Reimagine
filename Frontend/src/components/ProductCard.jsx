@@ -2,43 +2,12 @@ import React, { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { get_access_token } from "../utils/Cookies";
 
 gsap.registerPlugin(ScrollTrigger);
 
-const models = [
-  {
-    id: "1",
-    name: "iPhone 15",
-    displaySize: '6.1" display',
-    price: "From ₹79900.00",
-    monthly: "₹5492.00/mo.",
-  },
-  {
-    id: "2",
-    name: "iPhone 15 Plus",
-    displaySize: '6.7" display',
-    price: "From ₹89900.00",
-    monthly: "₹6325.00/mo.",
-  },
-  {
-    id: "3",
-    name: "iPhone 15 Pro",
-    displaySize: '6.1" display',
-    price: "From ₹134900.00",
-    monthly: "₹7492.00/mo.",
-  },
-  {
-    id: "4",
-    name: "iPhone 15 Pro Max",
-    displaySize: '6.7" display',
-    price: "From ₹159900.00",
-    monthly: "₹8825.00/mo.",
-  },
-];
-
-const ProductCard = ({ models }) => {
+const ProductCard = ({ models, deletel }) => {
   console.log(models);
-  // models = models.reverse();
   const cardsRef = useRef([]);
   const [images, setImages] = useState({});
 
@@ -81,8 +50,27 @@ const ProductCard = ({ models }) => {
     );
   }, [models]);
 
+  const handelDelete = async (id) => {
+    const options = {
+      method: "DELETE",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${get_access_token()}`,
+      },
+    };
+    const response = await fetch(
+      `${import.meta.env.VITE_REACT_APP_URL}/products/${id}`,
+      options
+    );
+    if (response.ok) {
+      console.log("Product deleted successfully");
+    } else {
+      console.error("Failed to delete product");
+    }
+  };
+
   return (
-    <Link className="text-grey-300 py-2 models-section opacity-100 z-50">
+    <div className="text-grey-300 py-2 models-section opacity-100 z-50">
       <div className="max-w-[90vw] mx-auto px-4">
         <div className="flex flex-wrap gap-8 mt-12 justify-center">
           {models.map((model, index) => (
@@ -91,36 +79,12 @@ const ProductCard = ({ models }) => {
               ref={(el) => (cardsRef.current[index] = el)}
               className="text-center bg-gray-300 p-4 rounded-lg w-[calc(25%-1rem)]"
             >
-              {/* {model.image.map((img, index) => {
-                return (
-                  <>
-                    <img
-                      src={`${
-                        import.meta.env.VITE_REACT_APP_URL
-                      }/products/product/${model._id}/image/${index}`}
-                      alt=""
-                    />
-                  </>
-                );
-              })} */}
-
               <img
                 src={`${import.meta.env.VITE_REACT_APP_URL}/products/product/${
                   model._id
                 }/image/${0}`}
                 alt=""
               />
-              {/* {model.image.map ? (
-                <img
-                  src={`${
-                    import.meta.env.VITE_REACT_APP_URL
-                  }/products/product/${model._id}/image/${image}`}
-                  alt={model.name}
-                  className="w-full h-auto mb-8"
-                />
-              ) : (
-                <div className="w-full h-auto mb-8 bg-gray-200">Loading...</div>
-              )} */}
               <h3 className="text-2xl font-semibold mb-2">{model.name}</h3>
               <p className="text-gray-500 mb-2">{model.displaySize}</p>
               <p className="text-xl mb-1">{model.price}</p>
@@ -133,6 +97,14 @@ const ProductCard = ({ models }) => {
               >
                 Buy
               </Link>
+              {deletel && (
+                <button
+                  onClick={() => handelDelete(model._id)}
+                  className="bg-red-400 px-6 py-2 text-white hover:bg-red-600 transition-colors duration-300 rounded-lg mt-4"
+                >
+                  Delete
+                </button>
+              )}
             </div>
           ))}
         </div>
@@ -141,7 +113,7 @@ const ProductCard = ({ models }) => {
           most leading banks.
         </p>
       </div>
-    </Link>
+    </div>
   );
 };
 

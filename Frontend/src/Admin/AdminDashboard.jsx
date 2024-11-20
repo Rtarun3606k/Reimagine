@@ -50,7 +50,7 @@ const AdminDashboardWithProvider = () => {
         <AdminDashboard />
       </FormProvider>
       {/* <IPhoneCard /> */}
-      <ProductCard models={Data} />
+      <ProductCard models={Data} deletel={true} />
     </>
   );
 };
