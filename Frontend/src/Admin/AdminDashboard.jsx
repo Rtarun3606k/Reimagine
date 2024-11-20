@@ -1,7 +1,9 @@
 // src/AdminDashboard.js
-import React from "react";
+import React, { useEffect, useState } from "react";
 import ProductForm from "./Components/ProductForm";
 import { FormProvider, useFormContext } from "./Context/FormContext";
+import IPhoneCard from "../components/IPhoneCard";
+import ProductCard from "../components/ProductCard";
 
 const AdminDashboard = () => {
   const { isFormOpen, handleOpenForm } = useFormContext();
@@ -22,10 +24,35 @@ const AdminDashboard = () => {
   );
 };
 
-const AdminDashboardWithProvider = () => (
-  <FormProvider>
-    <AdminDashboard />
-  </FormProvider>
-);
+const AdminDashboardWithProvider = () => {
+  const [Data, setData] = useState([]);
+  const fetchProducts = async () => {
+    try {
+      const response = await fetch(
+        `${import.meta.env.VITE_REACT_APP_URL}/products/allProducts`
+      );
+      const data = await response.json();
+      console.log(data);
+      // data = data.reverse();
+      setData(data.reverse());
+    } catch (error) {
+      console.error("Error fetching products:", error);
+    }
+  };
+  useEffect(() => {
+    // Add any side effects here
+    fetchProducts();
+  }, []);
+
+  return (
+    <>
+      <FormProvider>
+        <AdminDashboard />
+      </FormProvider>
+      {/* <IPhoneCard /> */}
+      <ProductCard models={Data} deletel={true} />
+    </>
+  );
+};
 
 export default AdminDashboardWithProvider;

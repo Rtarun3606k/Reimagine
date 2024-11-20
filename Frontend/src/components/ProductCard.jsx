@@ -1,59 +1,36 @@
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { get_access_token } from "../utils/Cookies";
 
 gsap.registerPlugin(ScrollTrigger);
 
-const models = [
-  {
-    name: "iPhone 15",
-    displaySize: '6.1" display',
-    price: "From ₹79900.00",
-    monthly: "₹5492.00/mo.",
-    image: "assets/images/iphone15.png",
-  },
-  {
-    name: "iPhone 15 Plus",
-    displaySize: '6.7" display',
-    price: "From ₹89900.00",
-    monthly: "₹6325.00/mo.",
-    image: "assets/images/iphone15plus.png",
-  },
-  {
-    name: "iPhone 15 Pro",
-    displaySize: '6.1" display',
-    price: "From ₹134900.00",
-    monthly: "₹7492.00/mo.",
-    image: "assets/images/iphone15pro.png",
-  },
-  {
-    name: "iPhone 15 Pro Max",
-    displaySize: '6.7" display',
-    price: "From ₹159900.00",
-    monthly: "₹8825.00/mo.",
-    image: "assets/images/iphone15promax.png",
-  },
-  {
-    name: "iPhone 15 Pro Max",
-    displaySize: '6.7" display',
-    price: "From ₹159900.00",
-    monthly: "₹8825.00/mo.",
-    image: "assets/images/iphone15promax.png",
-  },
-  {
-    name: "iPhone 15 Pro Max",
-    displaySize: '6.7" display',
-    price: "From ₹159900.00",
-    monthly: "₹8825.00/mo.",
-    image: "assets/images/iphone15promax.png",
-  },
-];
-
-const ProductCard = () => {
+const ProductCard = ({ models, deletel }) => {
+  console.log(models);
   const cardsRef = useRef([]);
+  const [images, setImages] = useState({});
 
   useEffect(() => {
+    const fetchImages = async () => {
+      const imagePromises = models.map(async (model, index) => {
+        const response = await fetch(`/products/${model.id}/image/0`);
+        const blob = await response.blob();
+        const url = URL.createObjectURL(blob);
+        return { id: model.id, url };
+      });
+
+      const imageResults = await Promise.all(imagePromises);
+      const imageMap = imageResults.reduce((acc, image) => {
+        acc[image.id] = image.url;
+        return acc;
+      }, {});
+
+      setImages(imageMap);
+    };
+
+    fetchImages();
+
     gsap.fromTo(
       cardsRef.current,
       { opacity: 0, y: 50 },
@@ -71,10 +48,29 @@ const ProductCard = () => {
         },
       }
     );
-  }, []);
+  }, [models]);
+
+  const handelDelete = async (id) => {
+    const options = {
+      method: "DELETE",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${get_access_token()}`,
+      },
+    };
+    const response = await fetch(
+      `${import.meta.env.VITE_REACT_APP_URL}/products/${id}`,
+      options
+    );
+    if (response.ok) {
+      console.log("Product deleted successfully");
+    } else {
+      console.error("Failed to delete product");
+    }
+  };
 
   return (
-    <section className="text-grey-300 py-2 models-section opacity-100 z-50">
+    <div className="text-grey-300 py-2 models-section opacity-100 z-50">
       <div className="max-w-[90vw] mx-auto px-4">
         <div className="flex flex-wrap gap-8 mt-12 justify-center">
           {models.map((model, index) => (
@@ -84,9 +80,10 @@ const ProductCard = () => {
               className="text-center bg-gray-300 p-4 rounded-lg w-[calc(25%-1rem)]"
             >
               <img
-                src={model.image}
-                alt={model.name}
-                className="w-full h-auto mb-8"
+                src={`${import.meta.env.VITE_REACT_APP_URL}/products/product/${
+                  model._id
+                }/image/${0}`}
+                alt=""
               />
               <h3 className="text-2xl font-semibold mb-2">{model.name}</h3>
               <p className="text-gray-500 mb-2">{model.displaySize}</p>
@@ -95,11 +92,19 @@ const ProductCard = () => {
                 From {model.monthly} with instant cashback*
               </p>
               <Link
-                to={`/shop/${model.name.toLowerCase().replace(/\s+/g, "-")}`}
+                to={`/${model._id}`}
                 className="px-6 py-2 bg-blue-500 text-white hover:bg-blue-700 transition-colors duration-300 rounded-lg z-50"
               >
                 Buy
               </Link>
+              {deletel && (
+                <button
+                  onClick={() => handelDelete(model._id)}
+                  className="bg-red-400 px-6 py-2 text-white hover:bg-red-600 transition-colors duration-300 rounded-lg mt-4"
+                >
+                  Delete
+                </button>
+              )}
             </div>
           ))}
         </div>
@@ -108,7 +113,7 @@ const ProductCard = () => {
           most leading banks.
         </p>
       </div>
-    </section>
+    </div>
   );
 };
 

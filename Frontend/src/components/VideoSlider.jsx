@@ -87,7 +87,7 @@ const VideoSlider = () => {
         </div>
         <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 text-center">
           <h3 className="text-2xl font-semibold">
-            {videos[currentVideoIndex].title}
+            {/* {videos[currentVideoIndex].title} */}
           </h3>
         </div>
         <div className="absolute bottom-2 left-1/2 transform -translate-x-1/2 flex space-x-2 justify-center items-center">

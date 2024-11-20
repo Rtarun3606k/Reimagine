@@ -53,6 +53,10 @@ const UserSchema = new mongoose.Schema(
       type: [mongoose.Schema.Types.Mixed],
       required: false, // Optional field
     },
+    cart: {
+      type: [mongoose.Schema.Types.Mixed],
+      required: false,
+    },
     role: {
       type: String,
       default: "user",

@@ -17,6 +17,7 @@ export const delete_access_token = () => {
 
 export const get_access_token = () => {
   const access_token = Cookies.get("access_token");
+  console.log(access_token);
   return access_token || false;
 };
 

@@ -23,11 +23,39 @@ const ProductForm = () => {
     setFormData({ ...formData, images: Array.from(e.target.files) });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // Handle form submission logic here
-    console.log(formData);
-    handleCloseForm();
+    const data = new FormData();
+    data.append("name", formData.name);
+    data.append("price", formData.price);
+    data.append("description", formData.description);
+    data.append("stock", formData.stock);
+    data.append("colors", formData.colors);
+    data.append("sizes", formData.sizes);
+    data.append("reviews", formData.reviews);
+    formData.images.forEach((image) => {
+      data.append("images", image);
+    });
+
+    try {
+      const response = await fetch(
+        `${import.meta.env.VITE_REACT_APP_URL}/products/add_product`,
+        {
+          method: "POST",
+          body: data,
+        }
+      );
+
+      if (!response.ok) {
+        throw new Error("Network response was not ok");
+      }
+
+      const result = await response.json();
+      console.log(result);
+      handleCloseForm();
+    } catch (error) {
+      console.error("Error uploading product:", error);
+    }
   };
 
   return (
