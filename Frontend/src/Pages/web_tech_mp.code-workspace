@@ -1,0 +1,20 @@
+{
+	"folders": [
+		{
+			"path": "../../../.."
+		},
+		{
+			"path": "../../../../../web_development/reactjs"
+		},
+		{
+			"path": "../../../../../../Website/my-react-app"
+		},
+		{
+			"path": "../../../../../../afll"
+		},
+		{
+			"path": "../../../../../Web_Tech/unit-3"
+		}
+	],
+	"settings": {}
+}
