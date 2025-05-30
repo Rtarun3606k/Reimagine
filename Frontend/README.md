@@ -1,23 +1,265 @@
+# Reimagine Frontend
+
 <div align="center">
-  <br />
-    <a href="https://youtu.be/kRQbRAJ4-Fs" target="_blank">
-      <img src="https://i.postimg.cc/37PnQw8n/Image-from.png" alt="Project Banner">
-    </a>
-  <br />
-
-  <div>
-    <img src="https://img.shields.io/badge/-React_JS-black?style=for-the-badge&logoColor=white&logo=react&color=61DAFB" alt="react.js" />
-    <img src="https://img.shields.io/badge/-Three_JS-black?style=for-the-badge&logoColor=white&logo=threedotjs&color=000000" alt="three.js" />
-    <img src="https://img.shields.io/badge/-GSAP-black?style=for-the-badge&logoColor=white&logo=greensock&color=88CE02" alt="greensock" />
-    <img src="https://img.shields.io/badge/-Tailwind_CSS-black?style=for-the-badge&logoColor=white&logo=tailwindcss&color=06B6D4" alt="tailwindcss" />
-  </div>
-
-  <h3 align="center">Iphone 15 Website</h3>
-
-   <div align="center">
-     Build this project step by step with our detailed tutorial on <a href="https://www.youtube.com/@javascriptmastery/videos" target="_blank"><b>JavaScript Mastery</b></a> YouTube. Join the JSM family!
-    </div>
+  <img src="https://img.shields.io/badge/-React_JS-black?style=for-the-badge&logoColor=white&logo=react&color=61DAFB" alt="react.js" />
+  <img src="https://img.shields.io/badge/-Three_JS-black?style=for-the-badge&logoColor=white&logo=threedotjs&color=000000" alt="three.js" />
+  <img src="https://img.shields.io/badge/-GSAP-black?style=for-the-badge&logoColor=white&logo=greensock&color=88CE02" alt="greensock" />
+  <img src="https://img.shields.io/badge/-Tailwind_CSS-black?style=for-the-badge&logoColor=white&logo=tailwindcss&color=06B6D4" alt="tailwindcss" />
+  <img src="https://img.shields.io/badge/-Vite-black?style=for-the-badge&logoColor=white&logo=vite&color=646CFF" alt="vite" />
 </div>
+
+## Overview
+
+A modern, responsive React application showcasing iPhone products with cutting-edge web technologies. Built with React, Three.js, GSAP animations, and Tailwind CSS to deliver a premium user experience that mirrors Apple's design philosophy.
+
+## 🚀 Features
+
+### Core Functionality
+
+- **Interactive 3D iPhone Models** - Photorealistic product visualization with Three.js
+- **Smooth GSAP Animations** - Hardware-accelerated scroll-triggered animations
+- **Responsive Design** - Optimized for mobile, tablet, and desktop devices
+- **Product Catalog** - Dynamic product browsing with detailed product pages
+- **User Authentication** - Secure login/register system with JWT tokens
+- **Shopping Cart** - Add to cart and order placement functionality
+- **Admin Dashboard** - Product management and user administration
+- **Dark Theme UI** - Modern glassmorphism design with enhanced readability
+
+### Page Structure
+
+- **Landing Page** - Hero video, highlights, 3D models, and feature showcase
+- **Product Pages** - Detailed iPhone specifications with image galleries
+- **User Profile** - Account management and order history
+- **About Page** - Company story and vision
+- **Support Page** - Customer service and FAQ section
+
+## 🛠️ Tech Stack
+
+### Core Technologies
+
+- **React 18** - Modern React with hooks and context
+- **Vite** - Fast build tool and development server
+- **React Router DOM** - Client-side routing and navigation
+- **Tailwind CSS** - Utility-first CSS framework
+
+### Animation & 3D
+
+- **GSAP (GreenSock)** - Professional-grade animations
+- **Three.js** - 3D graphics and WebGL rendering
+- **React Three Fiber** - React renderer for Three.js
+
+### State Management & API
+
+- **React Context** - Global state management
+- **Fetch API** - HTTP requests to backend services
+- **React Toastify** - Elegant notification system
+
+### Development Tools
+
+- **ESLint** - Code linting and quality assurance
+- **PostCSS** - CSS post-processing
+- **Vite Dev Server** - Hot module replacement development
+
+## 📦 Installation
+
+### Prerequisites
+
+- Node.js (v16 or higher)
+- npm or yarn package manager
+
+### Setup Instructions
+
+1. **Clone the repository**
+
+   ```bash
+   git clone https://github.com/Rtarun3606k/Reimagine.git
+   cd Reimagine/Frontend
+   ```
+
+2. **Install dependencies**
+
+   ```bash
+   npm install
+   ```
+
+3. **Environment Configuration**
+   Create a `.env` file in the Frontend directory:
+
+   ```env
+   VITE_REACT_APP_URL=http://localhost:3000
+   VITE_API_BASE_URL=http://localhost:3000
+   ```
+
+4. **Start development server**
+
+   ```bash
+   npm run dev
+   ```
+
+5. **Build for production**
+   ```bash
+   npm run build
+   ```
+
+## 🗂️ Project Structure
+
+```
+src/
+├── components/          # Reusable UI components
+│   ├── Hero.jsx        # Landing page hero section
+│   ├── Features.jsx    # Product features showcase
+│   ├── Model.jsx       # 3D iPhone model viewer
+│   ├── ProductCard.jsx # Product display cards
+│   ├── Navbar.jsx      # Navigation header
+│   └── ...
+├── Pages/              # Route components
+│   ├── Home.jsx        # Landing page
+│   ├── IPhonePage.jsx  # Individual product pages
+│   ├── Profile.jsx     # User account page
+│   ├── About.jsx       # Company information
+│   └── ...
+├── Admin/              # Admin dashboard components
+│   ├── AdminDashboard.jsx
+│   ├── AdminLayout.jsx
+│   └── Components/
+├── Css/                # Stylesheet files
+│   ├── Product.css     # Product page styles
+│   ├── Profile.css     # Profile page styles
+│   └── ...
+├── utils/              # Utility functions
+│   ├── Cookies.jsx     # Cookie management
+│   ├── animations.js   # GSAP animation helpers
+│   └── index.js        # Common utilities
+├── constants/          # Application constants
+└── assets/             # Static assets (images, videos)
+```
+
+## 🎨 Key Components
+
+### Landing Page Architecture
+
+- **Hero Section** - Dynamic video background with responsive design
+- **Highlights** - Interactive feature showcase with smooth animations
+- **3D Model Viewer** - Three.js powered iPhone visualization
+- **Features Grid** - Product capabilities in elegant card layout
+- **How It Works** - Step-by-step product education
+
+### Product Management
+
+- **ProductCard** - Reusable product display with hover effects
+- **ImageSlider** - Interactive product image gallery
+- **IPhonePage** - Detailed product specifications and ordering
+
+### User Interface
+
+- **Glassmorphism Design** - Modern glass-like UI elements
+- **Dark Theme** - Enhanced readability with proper contrast
+- **Responsive Layout** - Mobile-first design approach
+- **Loading States** - Skeleton animations for better UX
+
+## 🔧 Configuration
+
+### Tailwind CSS
+
+Custom configuration in `tailwind.config.js`:
+
+- Extended color palette for brand consistency
+- Custom spacing and typography scales
+- Responsive breakpoints for all device sizes
+
+### Vite Configuration
+
+Optimized build settings in `vite.config.js`:
+
+- React plugin integration
+- Asset optimization and chunking
+- Development server proxy configuration
+
+## 🚀 Available Scripts
+
+```bash
+# Development
+npm run dev          # Start development server
+npm run build        # Build for production
+npm run preview      # Preview production build
+npm run lint         # Run ESLint code analysis
+
+# Dependencies
+npm install          # Install all dependencies
+npm update           # Update dependencies
+```
+
+## 🌐 API Integration
+
+### Backend Communication
+
+- **Base URL**: Configured via environment variables
+- **Authentication**: JWT token-based security
+- **Error Handling**: Centralized error management with toast notifications
+- **Loading States**: Comprehensive loading and error state handling
+
+### Key Endpoints
+
+- `/products/allProducts` - Fetch product catalog
+- `/single/single/:model` - Get specific product details
+- `/user/order/:model` - Place product orders
+- `/login_register/login` - User authentication
+
+## 🎭 Animation Features
+
+### GSAP Animations
+
+- **Scroll-triggered animations** - Elements animate on scroll
+- **Timeline sequences** - Coordinated animation chains
+- **Smooth transitions** - Hardware-accelerated performance
+- **Interactive hover effects** - Enhanced user engagement
+
+### 3D Model Integration
+
+- **Three.js rendering** - WebGL-powered 3D graphics
+- **Interactive controls** - Mouse and touch interaction
+- **Material rendering** - Realistic textures and lighting
+- **Performance optimization** - Efficient 3D model loading
+
+## 🔐 Security Features
+
+- **JWT Authentication** - Secure token-based login system
+- **Protected Routes** - Authenticated user access control
+- **Input Validation** - Client-side form validation
+- **XSS Protection** - Sanitized user inputs
+
+## 📱 Responsive Design
+
+### Breakpoints
+
+- **Mobile**: 320px - 768px
+- **Tablet**: 768px - 1024px
+- **Desktop**: 1024px+
+
+### Features
+
+- **Adaptive layouts** - Optimal viewing on all devices
+- **Touch-friendly interactions** - Mobile gesture support
+- **Performance optimization** - Efficient mobile rendering
+
+## 🤝 Contributing
+
+1. Fork the repository
+2. Create a feature branch (`git checkout -b feature/amazing-feature`)
+3. Commit changes (`git commit -m 'Add amazing feature'`)
+4. Push to branch (`git push origin feature/amazing-feature`)
+5. Open a Pull Request
+
+## 📄 License
+
+This project is licensed under the MIT License - see the LICENSE file for details.
+
+## 🙏 Acknowledgments
+
+- **Apple Inc.** - Design inspiration and product imagery
+- **GSAP** - Animation library excellence
+- **Three.js** - 3D graphics capabilities
+- **React Community** - Open source ecosystem support
 
 ## 📋 <a name="table">Table of Contents</a>
 
@@ -31,7 +273,7 @@
 
 ## 🚨 Tutorial
 
-This repository contains the code corresponding to an in-depth tutorial available on our YouTube channel, <a href="https://www.youtube.com/@javascriptmastery/videos" target="_blank"><b>JavaScript Mastery</b></a>. 
+This repository contains the code corresponding to an in-depth tutorial available on our YouTube channel, <a href="https://www.youtube.com/@javascriptmastery/videos" target="_blank"><b>JavaScript Mastery</b></a>.
 
 If you prefer visual learning, this is the perfect resource for you. Follow our tutorial to learn how to build projects like these step-by-step in a beginner-friendly manner!
 
@@ -65,7 +307,7 @@ If you're getting started and need assistance or face any bugs, join our active 
 
 👉 **Completely Responsive**: Consistent access and optimal viewing on any device with a fully responsive design that adapts to different screen sizes.
 
-and many more, including code architecture and reusability 
+and many more, including code architecture and reusability
 
 ## <a name="quick-start">🤸 Quick Start</a>
 
@@ -304,27 +546,28 @@ const Lights = () => {
 
 export default Lights;
 ```
+
 </details>
 
 <details>
 <summary><code>materials</code></summary>
 
 ```javascript
-    useEffect(() => {
-      Object.entries(materials).map((material) => {
-        // these are the material names that can't be changed color
-        if (
-          material[0] !== "zFdeDaGNRwzccye" &&
-          material[0] !== "ujsvqBWRMnqdwPx" &&
-          material[0] !== "hUlRcbieVuIiOXG" &&
-          material[0] !== "jlzuBkUzuJqgiAK" &&
-          material[0] !== "xNrofRCqOXXHVZt"
-        ) {
-          material[1].color = new THREE.Color(props.item.color[0]);
-        }
-        material[1].needsUpdate = true;
-      });
-    }, [materials, props.item]);
+useEffect(() => {
+  Object.entries(materials).map((material) => {
+    // these are the material names that can't be changed color
+    if (
+      material[0] !== "zFdeDaGNRwzccye" &&
+      material[0] !== "ujsvqBWRMnqdwPx" &&
+      material[0] !== "hUlRcbieVuIiOXG" &&
+      material[0] !== "jlzuBkUzuJqgiAK" &&
+      material[0] !== "xNrofRCqOXXHVZt"
+    ) {
+      material[1].color = new THREE.Color(props.item.color[0]);
+    }
+    material[1].needsUpdate = true;
+  });
+}, [materials, props.item]);
 ```
 
 </details>
@@ -567,7 +810,6 @@ const VideoCarousel = () => {
 };
 
 export default VideoCarousel;
-
 ```
 
 </details>
@@ -634,6 +876,7 @@ export const explore2Img = explore2;
 export const chipImg = chip;
 export const frameImg = frame;
 ```
+
 </details>
 
 <details>
@@ -673,95 +916,95 @@ canvas {
 
 @layer utilities {
   .flex-center {
-    @apply flex items-center justify-center
+    @apply flex items-center justify-center;
   }
 
   .nav-height {
-    @apply h-[calc(100vh-60px)]
+    @apply h-[calc(100vh-60px)];
   }
 
   .btn {
-    @apply px-5 py-2 rounded-3xl bg-blue my-5 hover:bg-transparent border border-transparent hover:border hover:text-blue hover:border-blue
+    @apply px-5 py-2 rounded-3xl bg-blue my-5 hover:bg-transparent border border-transparent hover:border hover:text-blue hover:border-blue;
   }
 
   .color-container {
-    @apply flex items-center justify-center px-4 py-4 rounded-full bg-gray-300 backdrop-blur
+    @apply flex items-center justify-center px-4 py-4 rounded-full bg-gray-300 backdrop-blur;
   }
 
   .size-btn-container {
-    @apply flex items-center justify-center p-1 rounded-full bg-gray-300 backdrop-blur ml-3 gap-1
+    @apply flex items-center justify-center p-1 rounded-full bg-gray-300 backdrop-blur ml-3 gap-1;
   }
 
   .size-btn {
-    @apply w-10 h-10 text-sm flex justify-center items-center bg-white text-black rounded-full transition-all
+    @apply w-10 h-10 text-sm flex justify-center items-center bg-white text-black rounded-full transition-all;
   }
 
   .common-padding {
-    @apply sm:py-32 py-20 sm:px-10 px-5
+    @apply sm:py-32 py-20 sm:px-10 px-5;
   }
 
   .section-heading {
-    @apply text-gray lg:text-6xl md:text-5xl text-3xl lg:mb-0 mb-5 font-medium opacity-0 translate-y-20
+    @apply text-gray lg:text-6xl md:text-5xl text-3xl lg:mb-0 mb-5 font-medium opacity-0 translate-y-20;
   }
 
   .feature-text {
-    @apply text-gray max-w-md text-lg md:text-xl font-semibold opacity-0 translate-y-[100px]
+    @apply text-gray max-w-md text-lg md:text-xl font-semibold opacity-0 translate-y-[100px];
   }
 
   .feature-text-container {
-    @apply w-full flex-center flex-col md:flex-row mt-10 md:mt-16 gap-5
+    @apply w-full flex-center flex-col md:flex-row mt-10 md:mt-16 gap-5;
   }
 
   .feature-video {
-    @apply w-full h-full object-cover object-center scale-150 opacity-0
+    @apply w-full h-full object-cover object-center scale-150 opacity-0;
   }
 
   .feature-video-container {
-    @apply w-full flex flex-col md:flex-row gap-5 items-center
+    @apply w-full flex flex-col md:flex-row gap-5 items-center;
   }
 
   .link {
-    @apply text-blue hover:underline cursor-pointer flex items-center text-xl opacity-0 translate-y-20
+    @apply text-blue hover:underline cursor-pointer flex items-center text-xl opacity-0 translate-y-20;
   }
 
   .control-btn {
-    @apply ml-4 p-4 rounded-full bg-gray-300 backdrop-blur flex-center
+    @apply ml-4 p-4 rounded-full bg-gray-300 backdrop-blur flex-center;
   }
 
   .hero-title {
-    @apply text-center font-semibold text-3xl text-gray-100 opacity-0 max-md:mb-10
+    @apply text-center font-semibold text-3xl text-gray-100 opacity-0 max-md:mb-10;
   }
 
   .hiw-title {
-    @apply text-4xl md:text-7xl font-semibold text-center
+    @apply text-4xl md:text-7xl font-semibold text-center;
   }
 
   .hiw-subtitle {
-    @apply text-gray font-semibold text-xl md:text-2xl py-10 text-center
+    @apply text-gray font-semibold text-xl md:text-2xl py-10 text-center;
   }
 
   .hiw-video {
-    @apply absolute w-[95%] h-[90%] rounded-[56px] overflow-hidden
+    @apply absolute w-[95%] h-[90%] rounded-[56px] overflow-hidden;
   }
 
   .hiw-text-container {
-    @apply flex md:flex-row flex-col justify-between items-start gap-24
+    @apply flex md:flex-row flex-col justify-between items-start gap-24;
   }
 
   .hiw-text {
-    @apply text-gray text-xl font-normal md:font-semibold
+    @apply text-gray text-xl font-normal md:font-semibold;
   }
 
   .hiw-bigtext {
-    @apply text-white text-3xl md:text-5xl font-normal md:font-semibold my-2
+    @apply text-white text-3xl md:text-5xl font-normal md:font-semibold my-2;
   }
 
   .video-carousel_container {
-    @apply relative sm:w-[70vw] w-[88vw] md:h-[70vh] sm:h-[50vh] h-[35vh]
+    @apply relative sm:w-[70vw] w-[88vw] md:h-[70vh] sm:h-[50vh] h-[35vh];
   }
 
   .g_fadeIn {
-    @apply opacity-0 translate-y-[100px]
+    @apply opacity-0 translate-y-[100px];
   }
 }
 ```
