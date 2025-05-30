@@ -1,0 +1,679 @@
+/* Enhanced Product Page Styles */
+
+/* Text Visibility Improvements for Dark Theme */
+.product-page {
+  color: #ffffff;
+  background-color: #000000;
+}
+
+.product-page h1,
+.product-page h2,
+.product-page h3,
+.product-page h4,
+.product-page h5,
+.product-page h6 {
+  color: #ffffff;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.8);
+  font-weight: 600;
+}
+
+.product-page p {
+  color: #e5e7eb;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.7);
+  line-height: 1.6;
+}
+
+.product-page span {
+  color: #ffffff;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.6);
+}
+
+/* Ensure all text in glass cards is visible */
+.glass-card h1,
+.glass-card h2,
+.glass-card h3,
+.glass-card h4,
+.glass-card h5,
+.glass-card h6,
+.glass-card p,
+.glass-card span,
+.glass-card div {
+  color: #ffffff !important;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.8) !important;
+}
+
+/* Price and important info visibility */
+.price-text {
+  color: #60a5fa !important;
+  font-weight: 700;
+  text-shadow: 0 2px 8px rgba(96, 165, 250, 0.4);
+}
+
+/* Stock and status indicators */
+.stock-text {
+  color: #10b981 !important;
+  font-weight: 600;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.8);
+}
+
+.out-of-stock {
+  color: #ef4444 !important;
+  font-weight: 600;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.8);
+}
+
+/* Button text visibility */
+.btn-primary,
+.btn-secondary,
+.btn-enhanced {
+  color: #ffffff !important;
+  font-weight: 600;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+/* Review text visibility */
+.review-card p,
+.review-card span,
+.review-card h4 {
+  color: #ffffff !important;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.8) !important;
+}
+
+/* Option chips text */
+.option-chip {
+  color: #ffffff !important;
+  background-color: rgba(55, 65, 81, 0.8) !important;
+  border: 1px solid rgba(156, 163, 175, 0.6);
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.8);
+}
+
+.option-chip.selected {
+  background-color: rgba(59, 130, 246, 0.8) !important;
+  border-color: #60a5fa;
+  color: #ffffff !important;
+}
+
+/* Description and features text */
+.product-description,
+.product-features {
+  color: #d1d5db !important;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.8);
+  line-height: 1.7;
+}
+
+/* List items visibility */
+.product-page ul li,
+.product-page ol li {
+  color: #e5e7eb !important;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.7);
+}
+
+/* Error and loading states */
+.error-text {
+  color: #fca5a5 !important;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.8);
+}
+
+.loading-text {
+  color: #9ca3af !important;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.8);
+}
+
+/* Product Hero Section */
+.product-hero {
+  background: linear-gradient(135deg, #1a1a1a 0%, #000000 50%, #1a1a1a 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+.product-hero::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(
+    circle at 50% 50%,
+    rgba(59, 130, 246, 0.1) 0%,
+    transparent 70%
+  );
+  pointer-events: none;
+}
+
+/* Glassmorphic Card Style */
+.glass-card {
+  background: rgba(17, 24, 39, 0.9);
+  backdrop-filter: blur(16px);
+  border: 1px solid rgba(75, 85, 99, 0.4);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
+}
+
+/* Hover Effects */
+.hover-lift {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.hover-lift:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.3),
+    0 10px 10px -5px rgba(0, 0, 0, 0.1);
+}
+
+/* Gradient Text and Price Highlight */
+.gradient-text {
+  color: #ffffff;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+  font-weight: 600;
+}
+
+.price-highlight {
+  color: #60a5fa;
+  text-shadow: 0 0 20px rgba(96, 165, 250, 0.3);
+}
+
+/* Button Styles with Animations */
+.btn-primary {
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);
+  box-shadow: 0 4px 15px rgba(59, 130, 246, 0.4);
+}
+
+.btn-primary:hover {
+  box-shadow: 0 8px 25px rgba(59, 130, 246, 0.6);
+  transform: translateY(-1px);
+}
+
+.btn-secondary {
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(135deg, #10b981 0%, #047857 100%);
+  box-shadow: 0 4px 15px rgba(16, 185, 129, 0.4);
+}
+
+.btn-secondary:hover {
+  box-shadow: 0 8px 25px rgba(16, 185, 129, 0.6);
+  transform: translateY(-1px);
+}
+
+/* Enhanced button styles */
+.btn-enhanced {
+  position: relative;
+  overflow: hidden;
+  transform: perspective(1px) translateZ(0);
+  transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.btn-enhanced::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.2),
+    transparent
+  );
+  transition: left 0.5s;
+}
+
+.btn-enhanced:hover::before {
+  left: 100%;
+}
+
+/* Loading Spinner */
+.loading-spinner {
+  border-width: 3px;
+  border-style: solid;
+  border-color: transparent;
+  border-top-color: #ffffff;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* Responsive Design Improvements */
+@media (max-width: 640px) {
+  .product-hero {
+    padding: 3rem 1rem;
+  }
+
+  .glass-card {
+    margin: 1rem;
+    padding: 1.5rem;
+  }
+
+  .btn-primary,
+  .btn-secondary {
+    width: 100%;
+    margin-bottom: 0.5rem;
+  }
+}
+
+/* Color and Size Chips */
+.option-chip {
+  transition: all 0.2s ease-in-out;
+  cursor: pointer;
+}
+
+.option-chip:hover {
+  background-color: rgba(75, 85, 99, 0.8);
+  border-color: rgba(156, 163, 175, 0.8);
+  transform: scale(1.05);
+}
+
+/* Review Cards */
+.review-card {
+  transition: all 0.3s ease;
+  backdrop-filter: blur(8px);
+}
+
+.review-card:hover {
+  transform: translateY(-2px);
+  background-color: rgba(31, 41, 55, 0.5);
+}
+
+/* Stock Indicator */
+.stock-indicator {
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.7;
+  }
+}
+
+/* Enhanced Typography */
+.section-title {
+  font-weight: 700;
+  letter-spacing: -0.025em;
+  line-height: 1.2;
+  color: #ffffff;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.6);
+}
+
+.section-subtitle {
+  font-weight: 400;
+  letter-spacing: 0.025em;
+  color: #d1d5db;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
+}
+
+/* Enhanced animations */
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in {
+  animation: fade-in 1s ease-out;
+}
+
+/* Price highlight enhancement */
+.price-badge {
+  position: relative;
+  background: linear-gradient(
+    135deg,
+    rgba(59, 130, 246, 0.2) 0%,
+    rgba(59, 130, 246, 0.1) 100%
+  );
+  border: 1px solid rgba(59, 130, 246, 0.3);
+  backdrop-filter: blur(8px);
+}
+
+.price-badge::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    135deg,
+    rgba(59, 130, 246, 0.1) 0%,
+    transparent 100%
+  );
+  border-radius: inherit;
+}
+
+/* Image slider enhancement */
+.slide-container {
+  position: relative;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+}
+
+.slide-container::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(
+    145deg,
+    rgba(255, 255, 255, 0.1) 0%,
+    transparent 50%,
+    rgba(0, 0, 0, 0.1) 100%
+  );
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Additional text contrast improvements */
+.product-page * {
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Improve readability for small text */
+.product-page small,
+.product-page .text-sm,
+.product-page .text-xs {
+  color: #e5e7eb !important;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.9) !important;
+  font-weight: 500;
+}
+
+/* Enhanced focus states for accessibility */
+.option-chip:focus,
+.btn-primary:focus,
+.btn-secondary:focus {
+  outline: 2px solid #60a5fa;
+  outline-offset: 2px;
+}
+
+/* Improve contrast for interactive elements */
+button:hover {
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.8) !important;
+}
+
+/* Better spacing for mobile readability */
+@media (max-width: 768px) {
+  .product-page h1 {
+    font-size: 2.5rem;
+    line-height: 1.1;
+  }
+
+  .product-page p {
+    font-size: 1.1rem;
+    line-height: 1.7;
+  }
+
+  .glass-card {
+    padding: 2rem 1.5rem;
+  }
+}
+
+/* Enhanced animations for better UX */
+@keyframes glow {
+  0%,
+  100% {
+    box-shadow: 0 0 20px rgba(96, 165, 250, 0.2);
+  }
+  50% {
+    box-shadow: 0 0 30px rgba(96, 165, 250, 0.4);
+  }
+}
+
+.price-highlight {
+  animation: glow 3s ease-in-out infinite;
+}
+
+/* ProductCard Component Styling */
+.product-card-container {
+  background: transparent;
+  color: #ffffff;
+}
+
+.product-card {
+  background: rgba(17, 24, 39, 0.8);
+  backdrop-filter: blur(16px);
+  border: 1px solid rgba(75, 85, 99, 0.4);
+  border-radius: 20px;
+  padding: 1.5rem;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+  position: relative;
+  overflow: hidden;
+}
+
+.product-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(
+    145deg,
+    rgba(255, 255, 255, 0.05) 0%,
+    transparent 50%,
+    rgba(0, 0, 0, 0.1) 100%
+  );
+  pointer-events: none;
+  border-radius: inherit;
+}
+
+.product-card:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6);
+  border-color: rgba(96, 165, 250, 0.6);
+}
+
+.product-card:hover::before {
+  background: linear-gradient(
+    145deg,
+    rgba(96, 165, 250, 0.1) 0%,
+    transparent 50%,
+    rgba(0, 0, 0, 0.1) 100%
+  );
+}
+
+.product-card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 12px;
+  margin-bottom: 1rem;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  filter: brightness(0.9);
+}
+
+.product-card:hover img {
+  transform: scale(1.05);
+  filter: brightness(1.1);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+}
+
+.product-card h3 {
+  color: #ffffff !important;
+  font-weight: 700;
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.8);
+}
+
+.product-card-specs {
+  color: #d1d5db !important;
+  font-size: 0.875rem;
+  margin-bottom: 0.5rem;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.8);
+}
+
+.product-card-price {
+  color: #60a5fa !important;
+  font-weight: 700;
+  font-size: 1.25rem;
+  margin-bottom: 0.25rem;
+  text-shadow: 0 2px 4px rgba(96, 165, 250, 0.3);
+}
+
+.product-card-monthly {
+  color: #9ca3af !important;
+  font-size: 0.875rem;
+  margin-bottom: 1rem;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.8);
+}
+
+.product-card-buy-btn {
+  background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%) !important;
+  color: #ffffff !important;
+  padding: 0.75rem 1.5rem;
+  border-radius: 12px;
+  font-weight: 600;
+  text-decoration: none;
+  display: inline-block;
+  transition: all 0.3s ease;
+  border: none;
+  cursor: pointer;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 4px 15px rgba(59, 130, 246, 0.4);
+  margin-right: 0.5rem;
+  margin-bottom: 0.5rem;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.product-card-buy-btn::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.2),
+    transparent
+  );
+  transition: left 0.5s;
+  z-index: -1;
+}
+
+.product-card-buy-btn:hover::before {
+  left: 100%;
+}
+
+.product-card-buy-btn:hover {
+  background: linear-gradient(135deg, #1d4ed8 0%, #1e40af 100%) !important;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(59, 130, 246, 0.6);
+}
+
+.product-card-delete-btn {
+  background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%) !important;
+  color: #ffffff !important;
+  padding: 0.75rem 1.5rem;
+  border-radius: 12px;
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 4px 15px rgba(239, 68, 68, 0.4);
+  margin-top: 0.5rem;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.product-card-delete-btn::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.2),
+    transparent
+  );
+  transition: left 0.5s;
+  z-index: -1;
+}
+
+.product-card-delete-btn:hover::before {
+  left: 100%;
+}
+
+.product-card-delete-btn:hover {
+  background: linear-gradient(135deg, #dc2626 0%, #b91c1c 100%) !important;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(239, 68, 68, 0.6);
+}
+
+.product-card-disclaimer {
+  color: #9ca3af !important;
+  text-align: center;
+  font-size: 0.875rem;
+  margin-top: 2rem;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.8);
+  opacity: 0.8;
+}
+
+/* Product Card Loading Animation */
+.product-card.animate-pulse {
+  background: rgba(31, 41, 55, 0.6);
+}
+
+.product-card.animate-pulse > div {
+  background: linear-gradient(90deg, #374151 25%, #4b5563 50%, #374151 75%);
+  background-size: 200% 100%;
+  animation: loading 1.5s infinite;
+}
+
+@keyframes loading {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
+}
+
+/* Responsive design for product cards */
+@media (max-width: 1200px) {
+  .product-card {
+    width: calc(33.333% - 1rem);
+  }
+}
+
+@media (max-width: 768px) {
+  .product-card {
+    width: calc(50% - 1rem);
+  }
+}
+
+@media (max-width: 480px) {
+  .product-card {
+    width: 100%;
+    margin-bottom: 1rem;
+  }
+}
